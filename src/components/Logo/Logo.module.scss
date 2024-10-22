@@ -1,12 +1,12 @@
 .logo {
-    font-family: 'FarCry', sans-serif;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     -moz-column-gap: 5px;
     column-gap: 5px;
-
+    font-weight: 700;
+    text-transform: uppercase;
 
     &Top {
         display: inline-flex;
