@@ -7,7 +7,7 @@ export const fetchGames = createAsyncThunk(
     const { pageSize, genreId, platformId, sort } = params;
     try {
       const response = await axios.get(
-        `${import.meta.env.VITE_API_URL}games?discover=true&key=${
+        `https://api.rawg.io/api/games?discover=true&key=${
           import.meta.env.VITE_API_KEY
         }`,
         {

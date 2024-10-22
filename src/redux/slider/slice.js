@@ -6,9 +6,7 @@ export const fetchSlider = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const response = await axios.get(
-        `${import.meta.env.VITE_API_URL}games?key=${
-          import.meta.env.VITE_API_KEY
-        }`,
+        `https://api.rawg.io/api/games?key=${import.meta.env.VITE_API_KEY}`,
         {
           params: {
             page_size: 9,

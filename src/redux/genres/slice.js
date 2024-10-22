@@ -6,9 +6,7 @@ export const fetchGenres = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const response = await axios.get(
-        `${import.meta.env.VITE_API_URL}genres?key=${
-          import.meta.env.VITE_API_KEY
-        }`
+        `https://api.rawg.io/api/genres?key=${import.meta.env.VITE_API_KEY}`
       );
       return response.data;
     } catch (error) {

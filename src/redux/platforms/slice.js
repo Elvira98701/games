@@ -6,9 +6,7 @@ export const fetchPlatforms = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const response = await axios.get(
-        `${import.meta.env.VITE_API_URL}platforms?key=${
-          import.meta.env.VITE_API_KEY
-        }`
+        `https://api.rawg.io/api/platforms?key=${import.meta.env.VITE_API_KEY}`
       );
       return response.data;
     } catch (error) {

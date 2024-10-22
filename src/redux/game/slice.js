@@ -6,7 +6,7 @@ export const fetchGame = createAsyncThunk(
   async (id, thunkAPI) => {
     try {
       const response = await axios.get(
-        `${import.meta.env.VITE_API_URL}games/${id}?key=${
+        `https://api.rawg.io/api/games/${id}?key=${
           import.meta.env.VITE_API_KEY
         }`
       );
