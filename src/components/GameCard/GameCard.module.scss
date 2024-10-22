@@ -1,15 +1,16 @@
 .card {
     background-color: var(--color-additional);
     position: relative;
-    max-width: 300px;
     height: 450px;
     border-radius: var(--border-radius);
+
+
 
     &Image {
         width: 100%;
         -o-object-fit: cover;
         object-fit: cover;
-        @include square(300px);
+        @include square(100%);
         border-top-left-radius: var(--border-radius);
         border-top-right-radius: var(--border-radius);
     }

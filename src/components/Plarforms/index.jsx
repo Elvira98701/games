@@ -21,7 +21,7 @@ const Platforms = ({ value, onChangePlatform }) => {
     <div className={styles.platforms}>
       <h3>Platforms</h3>
       <div className={styles.platformsBlock} ref={blockRef}>
-        {items.slice(0, 18).map(({ id, name, image_background }) => (
+        {items.slice(0, 11).map(({ id, name, image_background }) => (
           <div className={styles.platform} key={id}>
             <div
               className={styles.image}

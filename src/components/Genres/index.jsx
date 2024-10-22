@@ -21,7 +21,7 @@ const Genres = ({ value, onChangeGenre }) => {
     <div className={styles.genres}>
       <h3>Genres</h3>
       <div className={styles.genresBlock} ref={blockRef}>
-        {items.map(({ id, name, image_background }) => (
+        {items.slice(0, 11).map(({ id, name, image_background }) => (
           <div className={styles.genre} key={id}>
             <div
               className={styles.image}

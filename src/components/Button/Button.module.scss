@@ -20,4 +20,8 @@
     &:hover {
         opacity: 0.3;
     }
+
+    @media (max-width: 770px) {
+        font-size: 12px;
+    }
 }
