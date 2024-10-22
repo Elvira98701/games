@@ -3,12 +3,16 @@
     min-height: 100vh;
     background-image: linear-gradient(to bottom, var(--color-additional), var(--color-dark));
 
-    // &Title {
-    //     text-align: center;
-    // }
+    &Title {
+
+        @media (max-width: 1000px) {
+            text-align: center;
+        }
+    }
 
     &Wrapper {
-        @include flex-center;
+        display: flex;
+        justify-content: center;
     }
 
     &List {

@@ -6,9 +6,10 @@ const Logo = () => {
     <Link className={styles.logo} to="/">
       <span>
         <svg
+          className={styles.logoIcon}
           xmlns="http://www.w3.org/2000/svg"
-          width="32"
-          height="32"
+          width="25"
+          height="25"
           fill="currentColor"
           viewBox="0 0 16 16"
         >
