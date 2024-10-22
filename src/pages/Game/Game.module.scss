@@ -1,0 +1,108 @@
+.game {
+    padding-block: 200px 50px;
+    background-position: top center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: relative;
+    min-height: 100vh;
+
+    @media (max-width: 1050px) {
+        background-size: 200%;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(to bottom, rgb(0 0 0 / 0.6) 0%, var(--color-dark) 45%);
+        z-index: 0;
+
+        @media (max-width: 1400px) {
+            background-image: linear-gradient(to bottom, rgb(0 0 0 / 0.6) 0%, var(--color-dark) 30%);
+        }
+
+        @media (max-width: 750px) {
+            background-image: linear-gradient(to bottom, rgb(0 0 0 / 0.6) 0%, var(--color-dark) 15%);
+        }
+
+    }
+
+    &Container {
+        z-index: 1;
+        position: relative;
+    }
+
+    &Content {
+        max-width: 900px;
+    }
+
+    &Back {
+        text-transform: uppercase;
+        color: rgb(117, 117, 117);
+        display: inline-flex;
+        align-items: center;
+        -moz-column-gap: 5px;
+        column-gap: 5px;
+        margin-bottom: 10px;
+        font-size: 14px;
+
+        &Icon {
+            fill: rgb(117, 117, 117);
+        }
+    }
+
+    &Title {
+        font-size: clamp(2.5rem, 2.25rem + 1.25vw, 3.75rem);
+    }
+
+    &Info {
+        @include flex-between;
+        padding-block: 40px;
+        width: clamp(15.625rem, 13.75rem + 9.38vw, 25rem);
+
+        div {
+            display: flex;
+            flex-direction: column;
+
+            span {
+                &:nth-child(1) {
+                    text-transform: uppercase;
+                    font-weight: 700;
+                    color: var(--color-accent);
+                }
+
+                &:nth-child(2) {
+                    font-size: clamp(1.25rem, 1.125rem + 0.63vw, 1.875rem);
+                    font-family: var(--font-family-accent);
+                }
+            }
+        }
+    }
+
+    &Link {
+        text-transform: capitalize;
+        color: var(--color-grey);
+        font-weight: 700;
+        display: inline-flex;
+        align-items: center;
+        -moz-column-gap: 10px;
+        column-gap: 10px;
+        transition: all 0.3s;
+
+        &Icon {
+            fill: var(--color-grey);
+            transition: all 0.3s;
+        }
+
+        &:hover {
+            color: var(--color-additional-light);
+
+            .gameLinkIcon {
+                transform: translateX(10px);
+            }
+        }
+    }
+}

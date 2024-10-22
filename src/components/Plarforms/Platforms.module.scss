@@ -1,0 +1,29 @@
+.platforms {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    width: 240px;
+
+    &Block {
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+        height: 143px;
+        overflow: hidden;
+        transition: height 0.3s;
+    }
+}
+
+.platform {
+    display: flex;
+    -moz-column-gap: 10px;
+    column-gap: 10px;
+}
+
+.image {
+    @include square(40px);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: var(--border-radius);
+}

@@ -1,0 +1,64 @@
+@use "@styles/mixins"as *;
+
+html,
+body {
+    width: 100%;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+    font-size: 16px;
+    font-family: var(--font-family-base);
+    color: var(--color-light);
+    font-weight: 400;
+    background-color: var(--color-dark);
+}
+
+button {
+    @include reset-button;
+}
+
+a {
+    text-decoration: none;
+    color: currentColor;
+}
+
+h1 {
+    font-size: clamp(2.5rem, 1.375rem + 5.63vw, 8.125rem);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    line-height: 1.2;
+    font-family: 'FarCry', sans-serif;
+    font-weight: 400;
+}
+
+.container {
+    max-width: calc(var(--container-width) + var(--container-padding-x) * 2);
+    padding-inline: var(--container-padding-x);
+    margin-inline: auto;
+}
+
+.App {
+    height: 100%;
+    width: 100vw;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.popup-opened {
+    overflow: hidden;
+}

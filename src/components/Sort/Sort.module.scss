@@ -1,0 +1,40 @@
+.sort {
+    position: relative;
+
+    &Label {
+        background-color: var(--color-additional);
+        color: var(--color-light);
+        border: none;
+        padding: 10px;
+        width: 200px;
+        border-radius: var(--border-radius);
+        text-align: center;
+
+        @media (max-width: 650px) {
+            width: 250px;
+        }
+    }
+
+    &Popup {
+        position: absolute;
+        left: 0;
+        top: 50px;
+        width: 100%;
+        z-index: 10;
+        background-color: var(--color-grey);
+        border-radius: var(--border-radius);
+        transition: all 0.3s;
+    }
+
+    &List {
+        padding: 10px 5px;
+        @include flex-center;
+        flex-direction: column;
+        row-gap: 5px;
+        text-transform: capitalize;
+
+        li {
+            cursor: pointer;
+        }
+    }
+}

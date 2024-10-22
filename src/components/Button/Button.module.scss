@@ -1,0 +1,23 @@
+.button {
+    padding: 10px 15px;
+    color: var(--color-light);
+    font-weight: 700;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 14px;
+    @include flex-center;
+    transition: all 0.3s;
+    text-transform: capitalize;
+
+    &Active {
+        background-color: var(--color-additional-light);
+    }
+
+    &Accent {
+        background-color: var(--color-additional);
+    }
+
+    &:hover {
+        opacity: 0.3;
+    }
+}

@@ -1,0 +1,51 @@
+.header {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 99;
+    min-height: var(--header-height);
+}
+
+.container {
+    @include flex-between;
+    min-height: var(--header-height);
+}
+
+.nav {
+    &List {
+        @include flex-center;
+    }
+
+    &Link {
+        @include square(54px);
+        border-radius: 50%;
+        display: inline-block;
+        transition: all 0.3s;
+
+        &:hover {
+            background-color: var(--color-additional);
+        }
+    }
+}
+
+.favourites {
+    background: url('../../assets/icons/heart.svg') center / 50% no-repeat;
+    position: relative;
+
+    &Counter {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: var(--color-accent);
+        @include square(25px);
+        @include flex-center;
+        border-radius: 50%;
+        font-size: 12px;
+        transition: all 0.3s;
+    }
+}
+
+.games {
+    background: url('../../assets/icons/cube.svg') center / 50% no-repeat;
+}

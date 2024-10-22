@@ -1,0 +1,18 @@
+.logo {
+    font-family: 'FarCry', sans-serif;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    -moz-column-gap: 5px;
+    column-gap: 5px;
+    font-size: 12px;
+
+    span {
+        font-size: 25px;
+        display: inline-flex;
+        align-items: center;
+        -moz-column-gap: 5px;
+        column-gap: 5px;
+    }
+}

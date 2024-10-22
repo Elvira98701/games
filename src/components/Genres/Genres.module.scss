@@ -1,0 +1,38 @@
+.genres {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    width: 240px;
+
+    &Block {
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+        height: 143px;
+        overflow: hidden;
+        transition: height 0.3s;
+
+        @media (max-width: 770px) {
+            row-gap: 5px;
+        }
+    }
+}
+
+.genre {
+    display: flex;
+    -moz-column-gap: 10px;
+    column-gap: 10px;
+
+    @media (max-width: 770px) {
+        -moz-column-gap: 5px;
+        column-gap: 5px;
+    }
+}
+
+.image {
+    @include square(40px);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: var(--border-radius);
+}
