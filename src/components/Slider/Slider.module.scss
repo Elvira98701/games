@@ -54,7 +54,7 @@
     z-index: 2;
 
     @media (max-width: 950px) {
-        top: 15vh;
+        top: var(--header-height);
     }
 
     @media (max-width: 750px) {
