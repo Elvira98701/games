@@ -1,0 +1,99 @@
+.topGames {
+    padding-block: var(--section-block);
+}
+
+.sliderContainer {
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+}
+
+.slidesWrapper {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    transition: all 0.5s ease-in;
+    z-index: 10;
+}
+
+.slideItem {
+    min-width: calc(100% / 5);
+    z-index: 0;
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    cursor: pointer;
+
+    @media (max-width: 1200px) {
+        min-width: calc(100% / 3);
+    }
+
+    @media (max-width: 950px) {
+        min-width: calc(100% / 2);
+    }
+
+    @media (max-width: 600px) {
+        min-width: 100%;
+    }
+}
+
+.slideContent {
+    padding: 10px;
+}
+
+.slideImage {
+    width: 100%;
+    height: 400px;
+    -o-object-fit: cover;
+    object-fit: cover;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    position: relative;
+    z-index: 0;
+    border: 10px solid transparent;
+    border-radius: 20px;
+
+    &.isActive {
+        z-index: 1;
+    }
+}
+
+.prevSlideButton,
+.nextSlideButton {
+    @include square(60px);
+    position: absolute;
+    border-radius: 50%;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    z-index: 4;
+    transition: scale 0.5s;
+    top: 0;
+    transition: all 0.3s;
+
+    &:disabled {
+        background-color: var(--color-grey);
+    }
+
+    &:active {
+        scale: 0.8;
+    }
+
+    @media (hover: hover) {
+        &:hover {
+            background-color: var(--color-additional-light);
+        }
+    }
+}
+
+.nextSlideButton {
+    background: url('../../assets/icons/caret-right.svg') center / 40% no-repeat;
+    right: 20px;
+}
+
+.prevSlideButton {
+    background: url('../../assets/icons/caret-left.svg') center / 40% no-repeat;
+    right: 100px;
+}

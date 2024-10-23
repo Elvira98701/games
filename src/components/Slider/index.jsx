@@ -122,12 +122,12 @@ const Slider = ({ slides = [] }) => {
         {slides.map(({ id, background_image }, index) => (
           <article
             onClick={() => setCurrentSlideIndex(index)}
-            className={styles.slideItem}
+            className={
+              currentSlideIndex === index
+                ? `${styles.slideItem} ${styles.slideItemActive}`
+                : styles.slideItem
+            }
             key={id}
-            style={{
-              transform: index === currentSlideIndex ? "scale(1.2)" : "",
-              zIndex: index === currentSlideIndex ? "1" : "",
-            }}
           >
             <img
               className={
@@ -137,9 +137,6 @@ const Slider = ({ slides = [] }) => {
               }
               src={background_image}
               alt={`Slide ${index}`}
-              style={{
-                width: "100%",
-              }}
             />
           </article>
         ))}

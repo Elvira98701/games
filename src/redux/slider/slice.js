@@ -9,8 +9,8 @@ export const fetchSlider = createAsyncThunk(
         `https://api.rawg.io/api/games?key=${import.meta.env.VITE_API_KEY}`,
         {
           params: {
-            page_size: 9,
-            page: 2,
+            page_size: 18,
+            page: 1,
             platforms: 187,
           },
         }
@@ -25,7 +25,7 @@ export const fetchSlider = createAsyncThunk(
 const sliderSlice = createSlice({
   name: "slider",
   initialState: {
-    items: [],
+    slides: [],
     status: "loading",
   },
   reducers: {},
@@ -36,7 +36,7 @@ const sliderSlice = createSlice({
 
     builder.addCase(fetchSlider.fulfilled, (state, action) => {
       state.status = "success";
-      state.items = action.payload.results;
+      state.slides = action.payload.results;
     });
 
     builder.addCase(fetchSlider.rejected, (state) => {

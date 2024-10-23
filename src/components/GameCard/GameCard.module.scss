@@ -4,8 +4,6 @@
     height: 450px;
     border-radius: var(--border-radius);
 
-
-
     &Image {
         width: 100%;
         -o-object-fit: cover;
@@ -43,8 +41,10 @@
         cursor: pointer;
         transition: all 0.3s;
 
-        &:hover {
-            fill: var(--color-accent);
+        @media (hover: hover) {
+            &:hover {
+                fill: var(--color-accent);
+            }
         }
     }
 }
