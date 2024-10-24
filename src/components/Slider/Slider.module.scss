@@ -200,3 +200,42 @@
     background: var(--color-dark) url('../../assets/icons/caret-left.svg') center / 40% no-repeat;
     left: 20px;
 }
+
+.sliderCircle {
+    position: absolute;
+    bottom: 50vh;
+    right: 200px;
+    @include square(200px);
+    @include flex-center;
+
+
+    @media (max-width: 1050px) {
+        bottom: 150px;
+        right: 50px;
+    }
+
+
+    &Icon {
+        @include square(200px);
+        fill: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+
+
+        &Main {
+            color: rgb(255 255 255 / 0.1);
+        }
+
+        &Accent {
+            transition: all 0.3s;
+            color: var(--color-light);
+            stroke-dasharray: 600px;
+        }
+    }
+
+    &Counter {
+        font-weight: 700;
+        font-size: 20px;
+    }
+}

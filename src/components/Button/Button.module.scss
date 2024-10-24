@@ -15,6 +15,7 @@
 
     &Accent {
         background-color: var(--color-additional);
+        background-image: linear-gradient(to right, var(--color-additional), var(--color-dark));
     }
 
     &:hover {

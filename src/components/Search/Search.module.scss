@@ -3,6 +3,7 @@
 
     &Input {
         background-color: var(--color-additional);
+        background-image: linear-gradient(to right, var(--color-additional), var(--color-dark));
         color: var(--color-light);
         border: none;
         padding: 10px 10px 10px 40px;

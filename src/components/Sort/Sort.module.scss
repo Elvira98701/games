@@ -3,7 +3,8 @@
 
     &Label {
         background-color: var(--color-additional);
-        color: var(--color-light);
+        background-image: linear-gradient(to right, var(--color-additional), var(--color-dark));
+        color: var(--color-grey);
         border: none;
         padding: 10px;
         width: 200px;

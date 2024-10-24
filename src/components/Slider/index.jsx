@@ -65,6 +65,7 @@ const Slider = ({ slides = [] }) => {
   };
 
   const offsetTranslateX = -(currentSlideIndex * (100 / slidesVisibleCount));
+  const offsetStroke = 600 - (600 / slides.length) * (currentSlideIndex + 1);
 
   return (
     <section className={styles.sliderContainer}>
@@ -151,6 +152,35 @@ const Slider = ({ slides = [] }) => {
         onClick={() => updateCurrentSlide(currentSlideIndex + 1)}
         type="button"
       ></button>
+      <div className={styles.sliderCircle}>
+        <svg
+          className={styles.sliderCircleIcon}
+          height="200"
+          width="200"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle
+            className={styles.sliderCircleIconMain}
+            r="95.5"
+            cx="100"
+            cy="100"
+            stroke="currentColor"
+            strokeWidth="2"
+          />
+          <circle
+            className={styles.sliderCircleIconAccent}
+            r="95.5"
+            cx="100"
+            cy="100"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeDashoffset={`${offsetStroke}px`}
+          />
+        </svg>
+        <span className={styles.sliderCircleCounter}>
+          {currentSlideIndex + 1} / {slides.length}
+        </span>
+      </div>
     </section>
   );
 };
