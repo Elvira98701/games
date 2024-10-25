@@ -41,13 +41,9 @@
         }
 
         &-2 {
-            background: url('../../assets/images/about/2.jpg') center top / cover no-repeat;
+            background: url('../../assets/images/about/2.jpg') center top/ cover no-repeat;
             top: 200px;
             z-index: 2;
-
-            @media (max-width: 750px) {
-                background-position: right;
-            }
         }
 
         &-3 {
