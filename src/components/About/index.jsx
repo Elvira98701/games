@@ -27,8 +27,13 @@ const About = () => {
       <div className="container">
         <h2 className={styles.aboutTitle}>Here you will find</h2>
         <div className={styles.aboutContent}>
-          {aboutList.map(({ id, title, description }) => (
-            <div key={id} className={styles.aboutCard}>
+          {aboutList.map(({ id, title, description }, index) => (
+            <div
+              key={id}
+              className={`${styles.aboutCard} ${
+                styles[`aboutCard-${index + 1}`]
+              }`}
+            >
               <h3 className={styles.aboutSubtitle}>{title}</h3>
               <p className={styles.aboutDescription}>{description}</p>
             </div>
