@@ -1,8 +1,9 @@
-import { useEffect, useRef, useState } from "react";
-import styles from "./TopGames.module.scss";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleItem } from "@redux/favourites/slice";
 import { Link } from "react-router-dom";
+
+import styles from "./TopGames.module.scss";
 
 const TopGames = ({ slides = [] }) => {
   const { favourites } = useSelector((state) => state.favourites);
