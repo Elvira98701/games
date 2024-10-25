@@ -58,23 +58,23 @@ const AllGamesPage = () => {
         <div className={styles.gamesHeader}>
           {/* <Sort value={sort} onChangeSort={onChangeSort} /> */}
           <Search />
+          <div className={styles.gamesButtons}>
+            <Button onClick={() => setIsOpenModal(!isOpenModal)}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                fill="#e0e1dd"
+                viewBox="0 0 256 256"
+              >
+                <path d="M176,80a8,8,0,0,1,8-8h32a8,8,0,0,1,0,16H184A8,8,0,0,1,176,80ZM40,88H144v16a8,8,0,0,0,16,0V56a8,8,0,0,0-16,0V72H40a8,8,0,0,0,0,16Zm176,80H120a8,8,0,0,0,0,16h96a8,8,0,0,0,0-16ZM88,144a8,8,0,0,0-8,8v16H40a8,8,0,0,0,0,16H80v16a8,8,0,0,0,16,0V152A8,8,0,0,0,88,144Z"></path>
+              </svg>
+            </Button>
+          </div>
         </div>
 
         <div className={styles.gamesInner}>
           <div className={styles.gamesFilter}>
-            <div className={styles.gamesButtons}>
-              <Button onClick={() => setIsOpenModal(!isOpenModal)}>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  fill="#fff"
-                  viewBox="0 0 256 256"
-                >
-                  <path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path>
-                </svg>
-              </Button>
-            </div>
             <div
               className={styles.gamesModal}
               style={{ transform: isOpenModal ? "translateY(0)" : "" }}

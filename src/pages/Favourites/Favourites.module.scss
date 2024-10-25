@@ -1,13 +1,10 @@
 .favourites {
     padding-block: 150px 50px;
     min-height: 100vh;
-    background-image: linear-gradient(to bottom, var(--color-additional), var(--color-dark));
+    background-color: var(--color-dark);
 
     &Title {
-
-        @media (max-width: 1000px) {
-            text-align: center;
-        }
+        border-bottom: 1px solid var(--color-grey);
     }
 
     &Wrapper {

@@ -56,11 +56,6 @@
         @media (max-width: 750px) {
             justify-content: center;
         }
-
-        @media (max-width: 650px) {
-            flex-direction: column-reverse;
-            row-gap: 10px;
-        }
     }
 
     &Inner {
@@ -103,19 +98,11 @@
     }
 
     &Buttons {
-        z-index: 105;
-        position: fixed;
-        bottom: 0;
-        left: 0;
         background-color: var(--color-dark);
-        width: 100%;
-        padding: 10px;
         display: none;
 
         @media (max-width: 770px) {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: block;
         }
     }
 
