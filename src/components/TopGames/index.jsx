@@ -9,8 +9,6 @@ const TopGames = ({ slides = [] }) => {
   const dispatch = useDispatch();
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [slidesVisibleCount, setSlidesVisibleCount] = useState(1);
-  const touchStartX = useRef(0);
-  const touchEndX = useRef(0);
 
   const updateSlidesVisibleCount = () => {
     if (window.innerWidth <= 600) {
@@ -32,35 +30,6 @@ const TopGames = ({ slides = [] }) => {
     };
   }, []);
 
-  const handleTouchStart = (event) => {
-    touchStartX.current = event.touches[0].clientX;
-  };
-
-  const handleTouchMove = (event) => {
-    touchEndX.current = event.touches[0].clientX;
-  };
-
-  const handleTouchEnd = () => {
-    const deltaX = touchStartX.current - touchEndX.current;
-    const swipeThreshold = 50;
-
-    if (deltaX > swipeThreshold) {
-      updateCurrentSlide(currentSlideIndex + 1);
-    } else if (deltaX < -swipeThreshold) {
-      updateCurrentSlide(currentSlideIndex - 1);
-    }
-  };
-
-  const updateCurrentSlide = (index) => {
-    if (index < 0) {
-      setCurrentSlideIndex(slides.length - 1);
-    } else if (index > slides.length - 1) {
-      setCurrentSlideIndex(0);
-    } else {
-      setCurrentSlideIndex(index);
-    }
-  };
-
   const offsetTranslateX = -(currentSlideIndex * (100 / slidesVisibleCount));
 
   return (
@@ -73,9 +42,6 @@ const TopGames = ({ slides = [] }) => {
             style={{
               transform: `translateX(${offsetTranslateX}%)`,
             }}
-            onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
-            onTouchEnd={handleTouchEnd}
           >
             {slides.map((item, index) => (
               <article className={styles.slideItem} key={item.id}>
@@ -109,12 +75,20 @@ const TopGames = ({ slides = [] }) => {
           </div>
           <button
             className={styles.prevSlideButton}
-            onClick={() => updateCurrentSlide(currentSlideIndex - 1)}
+            onClick={() =>
+              setCurrentSlideIndex(Math.max(currentSlideIndex - 1, 0))
+            }
+            disabled={currentSlideIndex === 0}
             type="button"
           ></button>
           <button
             className={styles.nextSlideButton}
-            onClick={() => updateCurrentSlide(currentSlideIndex + 1)}
+            onClick={() =>
+              setCurrentSlideIndex(
+                Math.min(currentSlideIndex + 1, slides.length - 1)
+              )
+            }
+            disabled={currentSlideIndex === slides.length - 1}
             type="button"
           ></button>
         </div>
