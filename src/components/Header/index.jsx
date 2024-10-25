@@ -15,6 +15,7 @@ const Header = () => {
             <Link
               className={`${styles.navLink} ${styles.favourites}`}
               to="/favourites"
+              title="favourites"
             >
               <span
                 className={styles.favouritesCounter}
@@ -30,6 +31,7 @@ const Header = () => {
             <Link
               className={`${styles.navLink} ${styles.games}`}
               to="/games"
+              title="games"
             ></Link>
           </li>
         </ul>

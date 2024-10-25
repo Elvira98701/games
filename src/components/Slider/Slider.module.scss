@@ -42,8 +42,8 @@
 .slideContent {
     position: absolute;
     top: 20vh;
-    left: 15vw;
-    width: 85vw;
+    left: 0;
+    width: 100%;
     height: 30vh;
     z-index: 2;
 
@@ -51,15 +51,12 @@
         top: var(--header-height);
     }
 
-    @media (max-width: 750px) {
-        left: 5vw;
-    }
-
     &>* {
         opacity: 0;
         position: absolute;
         top: 0;
         left: 0;
+        width: 100%;
         transition: all 0.3s;
         transform: scale(0.5);
     }

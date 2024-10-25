@@ -14,7 +14,7 @@ const Slider = ({ slides = [] }) => {
   const touchEndX = useRef(0);
 
   const circleRef = useRef();
-  const totalLengthCircle = useRef(0);
+  let totalLengthCircle = useRef();
 
   const updateSlidesVisibleCount = () => {
     if (window.innerWidth <= 600) {
@@ -97,24 +97,26 @@ const Slider = ({ slides = [] }) => {
             }
             key={item.id}
           >
-            <Link to={`/game/${item.id}`}>
-              <h2 className={styles.slideContentTitle}>{item.name}</h2>
-            </Link>
-            <div className={styles.slideContentInfo}>
-              <div>
-                <span>Play time:</span>
-                <span>{item.playtime} hours</span>
+            <div className="container">
+              <Link to={`/game/${item.id}`}>
+                <h2 className={styles.slideContentTitle}>{item.name}</h2>
+              </Link>
+              <div className={styles.slideContentInfo}>
+                <div>
+                  <span>Play time:</span>
+                  <span>{item.playtime} hours</span>
+                </div>
+                <div>
+                  <span>Rating:</span>
+                  <span>{item.rating}</span>
+                </div>
               </div>
-              <div>
-                <span>Rating:</span>
-                <span>{item.rating}</span>
-              </div>
+              <Button accent={true} onClick={() => dispatch(toggleItem(item))}>
+                {favourites.findIndex((obj) => obj.id === item.id) !== -1
+                  ? "Delete from favorites"
+                  : "Add to favorites"}
+              </Button>
             </div>
-            <Button accent={true} onClick={() => dispatch(toggleItem(item))}>
-              {favourites.findIndex((obj) => obj.id === item.id) !== -1
-                ? "Delete from favorites"
-                : "Add to favorites"}
-            </Button>
           </div>
         ))}
       </div>
