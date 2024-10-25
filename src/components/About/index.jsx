@@ -25,7 +25,7 @@ const About = () => {
   return (
     <section className={styles.about}>
       <div className="container">
-        <h2 className={styles.aboutTitle}>Here you will find</h2>
+        <h2 className={styles.aboutTitle}>About us</h2>
         <div className={styles.aboutContent}>
           {aboutList.map(({ id, title, description }, index) => (
             <div

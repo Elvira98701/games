@@ -4,7 +4,6 @@
 
     &Content {
         margin-top: 50px;
-
         position: relative;
         height: 600px;
         width: 100%;
@@ -83,7 +82,7 @@
         }
 
         @media (max-width: 600px) {
-            width: 90%;
+            width: 100%;
         }
     }
 }
