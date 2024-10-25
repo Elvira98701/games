@@ -1,13 +1,13 @@
 .about {
     padding-top: var(--section-block);
+    overflow: hidden;
 
     &Content {
         margin-top: 50px;
-        overflow: hidden;
+
         position: relative;
         height: 600px;
         width: 100%;
-        border-radius: var(--border-radius);
     }
 
     &Card {
@@ -18,13 +18,13 @@
         position: absolute;
         left: 0;
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
         flex-direction: column;
         transition: all 0.5s;
-        box-shadow: 0px -28px 50px 5px rgba(0, 0, 0, 0.7);
+        box-shadow: 0px -28px 50px 5px rgba(0, 0, 0, 0.6);
 
         &:hover {
-            transform: translateY(-200px);
+            transform: translateY(-150px);
         }
 
         &::after {
@@ -33,6 +33,7 @@
             inset: 0;
             z-index: 0;
             background-color: rgb(0 0 0 / 0.4);
+            border-radius: var(--border-radius);
         }
 
         &-1 {
@@ -63,11 +64,11 @@
         &::before {
             content: '';
             position: absolute;
-            left: 5px;
+            left: 10px;
             top: 50%;
             transform: translateY(-50%);
             border: 1px solid var(--color-grey);
-            @include square(60px);
+            @include square(70px);
             border-radius: 50px;
         }
     }
