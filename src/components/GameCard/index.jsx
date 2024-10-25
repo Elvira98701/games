@@ -13,34 +13,31 @@ const GameCard = ({
   const { favourites } = useSelector((state) => state.favourites);
 
   return (
-    <article className={styles.card}>
-      <img
-        className={styles.cardImage}
-        src={background_image}
-        alt="name"
-        loading="lazy"
-        width={300}
-        height={300}
-      />
-      <div className={styles.cardInfo}>
-        <span
-          className={styles.cardRating}
-          style={{
-            color:
-              rating <= 2
-                ? "#d90429"
-                : rating > 2 && rating < 4
-                ? "#edff21"
-                : "#6dc849",
-          }}
-        >
-          {rating}
-        </span>
-        <span>{released}</span>
+    <article
+      className={styles.card}
+      style={{ backgroundImage: `url(${background_image})` }}
+    >
+      <div className={styles.cardContent}>
+        <div className={styles.cardInfo}>
+          <span
+            className={styles.cardRating}
+            style={{
+              color:
+                rating <= 2
+                  ? "#d90429"
+                  : rating > 2 && rating < 4
+                  ? "#edff21"
+                  : "#6dc849",
+            }}
+          >
+            {rating}
+          </span>
+          <span>{released}</span>
+        </div>
+        <Link to={`/game/${id}`}>
+          <h3 className={styles.cardTitle}>{name}</h3>
+        </Link>
       </div>
-      <Link to={`/game/${id}`}>
-        <h3 className={styles.cardTitle}>{name}</h3>
-      </Link>
       <svg
         className={styles.cardIcon}
         onClick={onClick}
