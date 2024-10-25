@@ -13,6 +13,9 @@ const Slider = ({ slides = [] }) => {
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
 
+  const circleRef = useRef();
+  const totalLengthCircle = useRef(0);
+
   const updateSlidesVisibleCount = () => {
     if (window.innerWidth <= 600) {
       setSlidesVisibleCount(1);
@@ -28,6 +31,8 @@ const Slider = ({ slides = [] }) => {
   };
 
   useEffect(() => {
+    totalLengthCircle.current = circleRef.current.getTotalLength();
+
     updateSlidesVisibleCount();
     window.addEventListener("resize", updateSlidesVisibleCount);
     return () => {
@@ -65,7 +70,9 @@ const Slider = ({ slides = [] }) => {
   };
 
   const offsetTranslateX = -(currentSlideIndex * (100 / slidesVisibleCount));
-  const offsetStroke = 600 - (600 / slides.length) * (currentSlideIndex + 1);
+  const offsetStroke =
+    totalLengthCircle.current -
+    (totalLengthCircle.current / slides.length) * (currentSlideIndex + 1);
 
   return (
     <section className={styles.sliderContainer}>
@@ -155,23 +162,23 @@ const Slider = ({ slides = [] }) => {
       <div className={styles.sliderCircle}>
         <svg
           className={styles.sliderCircleIcon}
-          height="200"
-          width="200"
           xmlns="http://www.w3.org/2000/svg"
         >
           <circle
             className={styles.sliderCircleIconMain}
-            r="95.5"
-            cx="100"
-            cy="100"
+            r="65.5"
+            cx="75"
+            cy="75"
             stroke="currentColor"
             strokeWidth="2"
           />
           <circle
             className={styles.sliderCircleIconAccent}
-            r="95.5"
-            cx="100"
-            cy="100"
+            ref={circleRef}
+            strokeDasharray={totalLengthCircle.current}
+            r="65.5"
+            cx="75"
+            cy="75"
             stroke="currentColor"
             strokeWidth="2"
             strokeDashoffset={`${offsetStroke}px`}

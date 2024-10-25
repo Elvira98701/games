@@ -3,13 +3,13 @@
     --color-additional: #1B262C;
     --color-additional-light: #475B66;
     --color-accent: #d90429;
-    --color-grey: #778da9;
+    --color-grey: rgb(255 255 255 / 0.2);
     --color-light: #e0e1dd;
 
     --container-padding-x: 20px;
     --container-width: 1600px;
     --border-radius: 5px;
-    --section-block: 100px;
+    --section-block: clamp(3.125rem, 2.5rem + 3.13vw, 6.25rem);
 
     --header-height: 100px;
 

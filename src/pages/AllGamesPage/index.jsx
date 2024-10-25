@@ -56,7 +56,7 @@ const AllGamesPage = () => {
           <h1 className={styles.gamesTitle}>All games</h1>
         </div>
         <div className={styles.gamesHeader}>
-          <Sort value={sort} onChangeSort={onChangeSort} />
+          {/* <Sort value={sort} onChangeSort={onChangeSort} /> */}
           <Search />
         </div>
 
