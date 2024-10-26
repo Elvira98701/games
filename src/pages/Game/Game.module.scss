@@ -34,18 +34,18 @@
         max-width: 900px;
     }
 
-    &Back {
-        text-transform: uppercase;
+    &Nav {
         color: rgb(117, 117, 117);
-        display: inline-flex;
-        align-items: center;
-        -moz-column-gap: 5px;
-        column-gap: 5px;
-        margin-bottom: 10px;
         font-size: 14px;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+    }
 
-        &Icon {
-            fill: rgb(117, 117, 117);
+    &Back {
+        transition: all 0.3s;
+
+        &:hover {
+            color: var(--color-light);
         }
     }
 
@@ -79,7 +79,7 @@
 
     &Link {
         text-transform: capitalize;
-        color: var(--color-grey);
+        color: var(--color-additional-light);
         font-weight: 700;
         display: inline-flex;
         align-items: center;
@@ -88,12 +88,12 @@
         transition: all 0.3s;
 
         &Icon {
-            fill: var(--color-grey);
+            fill: var(--color-additional-light);
             transition: all 0.3s;
         }
 
         &:hover {
-            color: var(--color-additional-light);
+            color: var(--color-additional);
 
             .gameLinkIcon {
                 transform: translateX(10px);
