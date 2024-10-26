@@ -1,11 +1,11 @@
-import pc from "../assets/icons/platforms/pc.svg";
-import playstation5 from "../assets/icons/platforms/playstation5.svg";
-import playstation4 from "../assets/icons/platforms/playstation4.svg";
-import xboxOne from "../assets/icons/platforms/xbox-one.svg";
-import xbox from "../assets/icons/platforms/xbox.svg";
-import nintendoSwitch from "../assets/icons/platforms/nintendo.svg";
-import ios from "../assets/icons/platforms/macos.svg";
-import android from "../assets/icons/platforms/android.svg";
+import pc from "@assets/icons/platforms/pc.svg";
+import playstation5 from "@assets/icons/platforms/playstation5.svg";
+import playstation4 from "@assets/icons/platforms/playstation4.svg";
+import xboxOne from "@assets/icons/platforms/xbox-one.svg";
+import xbox from "@assets/icons/platforms/xbox.svg";
+import nintendoSwitch from "@assets/icons/platforms/nintendo.svg";
+import ios from "@assets/icons/platforms/macos.svg";
+import android from "@assets/icons/platforms/android.svg";
 
 export const platformsList = {
   pc: pc,

@@ -24,6 +24,7 @@ export default defineConfig({
       "@hooks": "/src/hooks",
       "@redux": "/src/redux",
       "@helpers": "/src/helpers",
+      "@assets": "/src/assets",
     },
   },
 });
