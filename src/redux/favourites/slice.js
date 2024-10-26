@@ -1,10 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const getFromLocalStorage = () => {
+  try {
+    return JSON.parse(localStorage.getItem("favourites"));
+  } catch (error) {
+    console.warn(error.message);
+    return null;
+  }
+};
+
+const initialState = {
+  favourites: getFromLocalStorage() ?? [],
+};
+
 const favouritesSlice = createSlice({
   name: "favourites",
-  initialState: {
-    favourites: [],
-  },
+  initialState,
   reducers: {
     toggleItem(state, action) {
       const existingIndex = state.favourites.findIndex(
@@ -18,9 +29,12 @@ const favouritesSlice = createSlice({
           (obj) => obj.id !== action.payload.id
         );
       }
+
+      localStorage.setItem("favourites", JSON.stringify(state.favourites));
     },
     clearItems(state) {
       state.favourites = [];
+      localStorage.removeItem("favourites");
     },
   },
 });

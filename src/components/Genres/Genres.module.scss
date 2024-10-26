@@ -37,4 +37,8 @@
     @media (max-width: 770px) {
         @include square(35px);
     }
+
+    &All {
+        background-image: url('@assets/images/genres.jpg');
+    }
 }

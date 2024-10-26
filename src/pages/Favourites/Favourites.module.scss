@@ -37,4 +37,9 @@
             grid-template-columns: repeat(1, 1fr);
         }
     }
+
+    &Buttons {
+        padding-block: 40px;
+        @include flex-center;
+    }
 }

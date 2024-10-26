@@ -11,6 +11,12 @@ const Platforms = ({ value, onChangePlatform }) => {
     <div className={styles.platforms}>
       <h3>Platforms</h3>
       <div className={styles.platformsBlock}>
+        <div className={styles.platform}>
+          <div className={`${styles.image} ${styles.imageAll}`}></div>
+          <Button onClick={() => onChangePlatform(0)} active={value === 0}>
+            All platforms
+          </Button>
+        </div>
         {items.slice(0, 8).map(({ id, name, slug }) => (
           <div className={styles.platform} key={id}>
             <div

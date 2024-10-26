@@ -33,6 +33,10 @@
     background-repeat: no-repeat;
     background-size: 80%;
 
+    &All {
+        background-image: url('@assets/icons/game-controller.svg');
+    }
+
     @media (max-width: 770px) {
         @include square(35px);
     }

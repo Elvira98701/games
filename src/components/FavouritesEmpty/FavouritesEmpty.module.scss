@@ -1,0 +1,26 @@
+.favouritesEmpty {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    @include flex-center;
+    -moz-column-gap: 10px;
+    column-gap: 10px;
+    font-size: 20px;
+    text-align: center;
+
+    @media (max-width: 750px) {
+        flex-direction: column;
+        row-gap: 10px;
+    }
+
+    &Icon {
+        color: var(--color-light);
+    }
+
+    &Link {
+        text-decoration: underline;
+        color: var(--color-additional-light);
+        font-weight: 700;
+    }
+}

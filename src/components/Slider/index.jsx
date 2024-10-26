@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import styles from "./Slider.module.scss";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { toggleItem } from "@redux/favourites/slice";
 import Button from "@components/Button";
 import { useDispatch, useSelector } from "react-redux";
@@ -10,11 +10,10 @@ const Slider = ({ slides = [] }) => {
   const { favourites } = useSelector((state) => state.favourites);
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [slidesVisibleCount, setSlidesVisibleCount] = useState(1);
+  const [totalLengthCircle, setTotalLengthCircle] = useState(0);
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
-
   const circleRef = useRef();
-  let totalLengthCircle = useRef();
 
   const updateSlidesVisibleCount = () => {
     if (window.innerWidth <= 600) {
@@ -30,9 +29,11 @@ const Slider = ({ slides = [] }) => {
     }
   };
 
-  useEffect(() => {
-    totalLengthCircle.current = circleRef.current.getTotalLength();
+  useLayoutEffect(() => {
+    setTotalLengthCircle(circleRef.current.getTotalLength());
+  }, []);
 
+  useEffect(() => {
     updateSlidesVisibleCount();
     window.addEventListener("resize", updateSlidesVisibleCount);
     return () => {
@@ -71,8 +72,8 @@ const Slider = ({ slides = [] }) => {
 
   const offsetTranslateX = -(currentSlideIndex * (100 / slidesVisibleCount));
   const offsetStroke =
-    totalLengthCircle.current -
-    (totalLengthCircle.current / slides.length) * (currentSlideIndex + 1);
+    totalLengthCircle -
+    (totalLengthCircle / slides.length) * (currentSlideIndex + 1);
 
   return (
     <section className={styles.sliderContainer}>
@@ -177,7 +178,7 @@ const Slider = ({ slides = [] }) => {
           <circle
             className={styles.sliderCircleIconAccent}
             ref={circleRef}
-            strokeDasharray={totalLengthCircle.current}
+            strokeDasharray={totalLengthCircle}
             r="65.5"
             cx="75"
             cy="75"
