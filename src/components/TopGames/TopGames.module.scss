@@ -115,12 +115,12 @@
 }
 
 .nextSlideButton {
-    background: url('../../assets/icons/caret-right.svg') center / 40% no-repeat;
+    background: url('@assets/icons/caret-right.svg') center / 40% no-repeat;
     right: 20px;
 }
 
 .prevSlideButton {
-    background: url('../../assets/icons/caret-left.svg') center / 40% no-repeat;
+    background: url('@assets/icons/caret-left.svg') center / 40% no-repeat;
     right: 100px;
 }
 

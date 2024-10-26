@@ -30,7 +30,7 @@
 }
 
 .favourites {
-    background: url('../../assets/icons/heart.svg') center / 50% no-repeat;
+    background: url('@assets/icons/heart.svg') center / 50% no-repeat;
     position: relative;
 
     &Counter {
@@ -47,5 +47,5 @@
 }
 
 .games {
-    background: url('../../assets/icons/cube.svg') center / 50% no-repeat;
+    background: url('@assets/icons/cube.svg') center / 50% no-repeat;
 }

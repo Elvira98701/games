@@ -1,8 +1,8 @@
 import { useSelector } from "react-redux";
 import Button from "@components/Button";
+import { platformsList } from "@helpers/constants";
 
 import styles from "./Platforms.module.scss";
-import { platformsList } from "@helpers/constants";
 
 const Platforms = ({ value, onChangePlatform }) => {
   const { items } = useSelector((state) => state.platforms);
@@ -15,7 +15,7 @@ const Platforms = ({ value, onChangePlatform }) => {
           <div className={styles.platform} key={id}>
             <div
               className={styles.image}
-              style={{ backgroundImage: `url(${platformsList[slug]})` }}
+              style={{ backgroundImage: `url("${platformsList[slug]}")` }}
             ></div>
             <Button onClick={() => onChangePlatform(id)} active={value === id}>
               {name}
