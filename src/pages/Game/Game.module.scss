@@ -23,11 +23,6 @@
         @media (max-width: 1400px) {
             background-image: linear-gradient(to bottom, rgb(0 0 0 / 0.6) 0%, var(--color-dark) 30%);
         }
-
-        @media (max-width: 750px) {
-            background-image: linear-gradient(to bottom, rgb(0 0 0 / 0.6) 0%, var(--color-dark) 15%);
-        }
-
     }
 
     &Container {
