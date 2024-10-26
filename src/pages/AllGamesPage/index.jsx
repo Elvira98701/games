@@ -41,14 +41,6 @@ const AllGamesPage = () => {
     dispatch(fetchGames({ pageSize, genreId, platformId, sort }));
   }, [genreId, platformId, sort]);
 
-  useEffect(() => {
-    if (isOpenModal) {
-      document.documentElement.classList.add("popup-opened");
-    } else {
-      document.documentElement.classList.remove("popup-opened");
-    }
-  }, [isOpenModal]);
-
   return (
     <main className={styles.games}>
       <section className={`${styles.gamesContainer} container`}>
@@ -77,7 +69,11 @@ const AllGamesPage = () => {
           <div className={styles.gamesFilter}>
             <div
               className={styles.gamesModal}
-              style={{ transform: isOpenModal ? "translateY(0)" : "" }}
+              style={{
+                transform: isOpenModal ? "translateY(0)" : "",
+                opacity: isOpenModal ? 1 : "",
+                pointerEvents: isOpenModal ? "all" : "",
+              }}
             >
               <Genres value={genreId} onChangeGenre={onChangeGenre} />
               <Platforms

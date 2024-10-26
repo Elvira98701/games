@@ -65,6 +65,7 @@
         -moz-column-gap: 25px;
         column-gap: 25px;
         margin-block: 50px;
+        position: relative;
 
         @media (max-width: 770px) {
             -moz-column-gap: 0;
@@ -80,20 +81,18 @@
         z-index: 100;
 
         @media (max-width: 770px) {
-            position: fixed;
+            position: absolute;
             top: 0;
             left: 0;
             flex-direction: row;
-            -moz-column-gap: 5px;
-            column-gap: 5px;
             width: 100%;
-            height: 200%;
+            border-radius: var(--border-radius);
             background-color: var(--color-dark);
-            transform: translateY(100%);
             transition: all 0.3s;
             padding: 15px;
-            padding-top: var(--header-height);
-            overflow-y: auto;
+            pointer-events: none;
+            opacity: 0;
+            transform: translateY(50px);
         }
     }
 

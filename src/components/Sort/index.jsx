@@ -4,8 +4,7 @@ import styles from "./Sort.module.scss";
 const sortList = [
   { id: 1, name: "-name" },
   { id: 2, name: "-released" },
-  { id: 3, name: "-rating" },
-  { id: 4, name: "-metacritic" },
+  { id: 3, name: "rating_top" },
 ];
 
 const Sort = ({ value, onChangeSort }) => {
