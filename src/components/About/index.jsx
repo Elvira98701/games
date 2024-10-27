@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styles from "./About.module.scss";
 
 const aboutList = [
@@ -25,7 +26,17 @@ const About = () => {
   return (
     <section className={styles.about}>
       <div className="container">
-        <h2 className={styles.aboutTitle}>About us</h2>
+        <div className={styles.aboutHeader}>
+          <h2 className={styles.aboutTitle}>About us</h2>
+          <p className={styles.aboutSlogun}>
+            We are a team of avid gamers who know everything about video games.
+            We are happy to share our passion for games with you, helping you
+            find the perfect game for any mood.
+          </p>
+          <Link className={styles.aboutLink} to="/games">
+            See games
+          </Link>
+        </div>
         <div className={styles.aboutContent}>
           {aboutList.map(({ id, title, description }, index) => (
             <div

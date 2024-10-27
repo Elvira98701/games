@@ -2,8 +2,25 @@
     padding-top: var(--section-block);
     overflow: hidden;
 
+    &Header {
+        text-align: center;
+    }
+
+    &Slogun {
+        max-width: 550px;
+        margin: 20px auto 30px;
+    }
+
+    &Link {
+        text-transform: uppercase;
+        padding: 10px 15px;
+        background-color: var(--color-additional);
+        border-radius: var(--border-radius);
+        font-weight: 700;
+    }
+
     &Content {
-        margin-top: 50px;
+        margin-top: var(--section-block);
         position: relative;
         height: 600px;
         width: 100%;
