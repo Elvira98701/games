@@ -69,6 +69,7 @@
     &Title {
         font-size: clamp(1.875rem, 1.625rem + 1.25vw, 3.125rem);
         width: 100%;
+        text-transform: capitalize
     }
 
     &Info {

@@ -38,10 +38,19 @@ h2 {
 }
 
 h1,
-h2 {
+h2,
+h3 {
     line-height: 1.2;
-    font-family: 'FarCry', sans-serif;
     font-weight: 400;
+    font-family: var(--font-family-accent);
+}
+
+h1 {
+    text-transform: uppercase;
+}
+
+h2 {
+    text-transform: uppercase;
 }
 
 .container {
