@@ -41,9 +41,12 @@
         justify-content: center;
 
         @media (max-width: 750px) {
-            height: 30vh;
-            align-items: center;
+            height: 25vh;
         }
+    }
+
+    &Title {
+        margin-top: 50px;
     }
 
     &Header {

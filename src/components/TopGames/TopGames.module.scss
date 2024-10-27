@@ -32,7 +32,7 @@
 
     &:hover {
         .slideContent {
-            background-color: rgb(0 0 0/ 0.9);
+            opacity: 1;
         }
     }
 
@@ -57,8 +57,9 @@
     @include flex-center;
     text-align: center;
     padding: 20px;
-    background-color: rgb(0 0 0/ 0.4);
+    background-color: rgb(0 0 0/ 0.6);
     transition: all 0.3s;
+    opacity: 0;
 }
 
 .slideTitle {

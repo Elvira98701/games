@@ -74,7 +74,7 @@
 
     &Info {
         @include flex-between;
-        padding-block: 25px;
+        padding-block: 20px;
         width: clamp(15.625rem, 13.75rem + 9.38vw, 25rem);
 
         @media (max-width: 750px) {
@@ -93,7 +93,7 @@
                 }
 
                 &:nth-child(2) {
-                    font-size: clamp(1.25rem, 1.125rem + 0.63vw, 1.875rem);
+                    font-size: clamp(1.125rem, 1.038rem + 0.44vw, 1.563rem);
                     font-family: var(--font-family-accent);
                 }
             }

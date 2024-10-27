@@ -1,3 +1,11 @@
 .topDevelopers {
     padding-bottom: var(--section-block);
+
+
+    &Inner {
+        background-color: var(--color-light);
+        color: var(--color-dark);
+        border-radius: 24px;
+        padding-block: 50px;
+    }
 }

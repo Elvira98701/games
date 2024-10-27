@@ -18,6 +18,9 @@
     &Title {
         padding: 15px;
         font-size: 18px;
+        text-transform: capitalize;
+        font-family: var(--font-family-base);
+        font-weight: 700;
     }
 
     &Info {
