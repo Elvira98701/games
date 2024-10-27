@@ -8,12 +8,12 @@ import ios from "@assets/icons/platforms/macos.svg";
 import android from "@assets/icons/platforms/android.svg";
 
 export const platformsList = {
-  pc: pc,
-  playstation5: playstation5,
-  playstation4: playstation4,
+  pc,
+  playstation5,
+  playstation4,
   "xbox-one": xboxOne,
   "xbox-series-x": xbox,
   "nintendo-switch": nintendoSwitch,
-  ios: ios,
-  android: android,
+  ios,
+  android,
 };

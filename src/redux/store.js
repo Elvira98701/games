@@ -6,6 +6,7 @@ import platformsSlice from "./platforms/slice";
 import favouritesSlice from "./favourites/slice";
 import filterSlice from "./filter/slice";
 import gameSlice from "./game/slice";
+import developersSlice from "./developers/slice";
 
 export const store = configureStore({
   reducer: {
@@ -16,5 +17,6 @@ export const store = configureStore({
     platforms: platformsSlice,
     favourites: favouritesSlice,
     filter: filterSlice,
+    developers: developersSlice,
   },
 });

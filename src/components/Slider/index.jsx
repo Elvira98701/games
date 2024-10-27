@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import styles from "./Slider.module.scss";
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { memo, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { toggleItem } from "@redux/favourites/slice";
 import Button from "@components/Button";
 import { useDispatch, useSelector } from "react-redux";
 
-const Slider = ({ slides = [] }) => {
+const Slider = memo(function Slider({ slides = [] }) {
   const dispatch = useDispatch();
   const { favourites } = useSelector((state) => state.favourites);
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
@@ -193,6 +193,6 @@ const Slider = ({ slides = [] }) => {
       </div>
     </section>
   );
-};
+});
 
 export default Slider;

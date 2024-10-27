@@ -12,6 +12,7 @@ import ScrollToTop from "@helpers/scrollToTop";
 import { fetchSlider } from "@redux/slider/slice";
 import { fetchGenres } from "@redux/genres/slice";
 import { fetchPlatforms } from "@redux/platforms/slice";
+import { fetchDevelopers } from "@redux/developers/slice";
 
 import "@styles/index.scss";
 
@@ -22,6 +23,7 @@ const App = () => {
     dispatch(fetchSlider());
     dispatch(fetchGenres());
     dispatch(fetchPlatforms());
+    dispatch(fetchDevelopers());
   }, [dispatch]);
 
   return (
