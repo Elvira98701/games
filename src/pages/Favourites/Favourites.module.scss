@@ -13,6 +13,11 @@
         justify-content: center;
     }
 
+    &Icon {
+        width: clamp(3.125rem, 2.25rem + 4.38vw, 7.5rem);
+        height: auto;
+    }
+
     &List {
         display: grid;
         grid-template-columns: repeat(5, 1fr);

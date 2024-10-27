@@ -75,7 +75,7 @@
     &Info {
         @include flex-between;
         padding-block: 20px;
-        width: clamp(15.625rem, 13.75rem + 9.38vw, 25rem);
+        width: clamp(12.5rem, 11.875rem + 3.13vw, 15.625rem);
 
         @media (max-width: 750px) {
             padding-block: 15px;
