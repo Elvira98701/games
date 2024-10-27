@@ -5,7 +5,7 @@ const Logo = () => {
   return (
     <Link className={styles.logo} to="/">
       <svg className={styles.logoIcon}>
-        <use href="../../public/logo-sprite.svg#logo-far-cry-ai"></use>
+        <use href="./logo-sprite.svg#logo-far-cry-ai"></use>
       </svg>
     </Link>
   );
