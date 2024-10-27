@@ -1,34 +1,7 @@
 .logo {
-    // display: inline-flex;
-    // align-items: center;
-    // justify-content: center;
-    // flex-direction: column;
-    // font-weight: 700;
-    // text-transform: uppercase;
-
-    // &Top {
-    //     display: inline-flex;
-    //     align-items: center;
-    //     -moz-column-gap: 5px;
-    //     column-gap: 5px;
-    //     justify-content: space-between;
-    // }
-
-    // &Icon {
-    //     width: 25px;
-    // }
-
-    // &BigName {
-    //     font-size: 20px;
-    // }
-
-    // &Name {
-    //     font-size: 10px;
-    //     line-height: 1;
-    // }
-
     &Icon {
         fill: currentColor;
         width: 80px;
+        height: 37px;
     }
 }
