@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import GameCard from "@components/GameCard";
@@ -16,7 +16,7 @@ import Sort from "@components/Sort";
 import Pagination from "@components/Pagination";
 import Skeleton from "@components/Skeleton";
 
-const AllGamesPage = () => {
+const AllGamesPage = memo(function AllGamesPage() {
   const dispatch = useDispatch();
   const { items, status } = useSelector((state) => state.games);
   const { genreId, platformId, sort, searchValue, currentPage, pageSize } =
@@ -51,7 +51,7 @@ const AllGamesPage = () => {
         currentPage,
       })
     );
-  }, [genreId, platformId, sort, searchValue, currentPage]);
+  }, [genreId, platformId, sort, searchValue, currentPage, pageSize, dispatch]);
 
   return (
     <main className={styles.games}>
@@ -128,6 +128,6 @@ const AllGamesPage = () => {
       </section>
     </main>
   );
-};
+});
 
 export default AllGamesPage;
