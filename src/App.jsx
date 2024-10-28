@@ -15,6 +15,7 @@ import { fetchPlatforms } from "@redux/platforms/slice";
 import { fetchDevelopers } from "@redux/developers/slice";
 
 import "@styles/index.scss";
+import Footer from "@components/Footer";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -36,6 +37,7 @@ const App = () => {
         <Route path="/games" element={<AllGamesPage />} />
         <Route path="/game/:id" element={<Game />} />
       </Routes>
+      <Footer />
     </div>
   );
 };
