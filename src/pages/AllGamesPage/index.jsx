@@ -8,25 +8,19 @@ import Platforms from "@components/Plarforms";
 import Search from "@components/Search";
 
 import { fetchGames } from "@redux/games/slice";
-import { setGenreId, setPlatformId, setSort } from "@redux/filter/slice";
+import { setSort } from "@redux/filter/slice";
 import { toggleItem } from "@redux/favourites/slice";
 
 import styles from "./AllGamesPage.module.scss";
 import Sort from "@components/Sort";
+import Pagination from "@components/Pagination";
 
 const AllGamesPage = () => {
   const dispatch = useDispatch();
-  const { items } = useSelector((state) => state.games);
-  const { genreId, platformId, sort } = useSelector((state) => state.filter);
+  const { items, status } = useSelector((state) => state.games);
+  const { genreId, platformId, sort, searchValue, currentPage, pageSize } =
+    useSelector((state) => state.filter);
   const [isOpenModal, setIsOpenModal] = useState(false);
-
-  const onChangeGenre = (id) => {
-    dispatch(setGenreId(id));
-  };
-
-  const onChangePlatform = (id) => {
-    dispatch(setPlatformId(id));
-  };
 
   const onChangeSort = (value) => {
     dispatch(setSort(value));
@@ -37,9 +31,26 @@ const AllGamesPage = () => {
   };
 
   useEffect(() => {
-    const pageSize = 12;
-    dispatch(fetchGames({ pageSize, genreId, platformId, sort }));
-  }, [genreId, platformId, sort]);
+    const closeModal = () => {
+      setIsOpenModal(false);
+    };
+    document.addEventListener("click", closeModal);
+
+    return () => document.removeEventListener("click", closeModal);
+  }, []);
+
+  useEffect(() => {
+    dispatch(
+      fetchGames({
+        pageSize,
+        genreId,
+        platformId,
+        sort,
+        searchValue,
+        currentPage,
+      })
+    );
+  }, [genreId, platformId, sort, searchValue, currentPage]);
 
   return (
     <main className={styles.games}>
@@ -51,7 +62,12 @@ const AllGamesPage = () => {
           {/* <Sort value={sort} onChangeSort={onChangeSort} /> */}
           <Search />
           <div className={styles.gamesButtons}>
-            <Button onClick={() => setIsOpenModal(!isOpenModal)}>
+            <Button
+              onClick={(event) => {
+                event.stopPropagation();
+                setIsOpenModal(!isOpenModal);
+              }}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -75,23 +91,39 @@ const AllGamesPage = () => {
                 pointerEvents: isOpenModal ? "all" : "",
               }}
             >
-              <Genres value={genreId} onChangeGenre={onChangeGenre} />
-              <Platforms
-                value={platformId}
-                onChangePlatform={onChangePlatform}
-              />
+              <Genres />
+              <Platforms />
             </div>
           </div>
-          <section className={styles.gamesContent}>
-            {items.map((item) => (
-              <GameCard
-                key={item.id}
-                {...item}
-                onClick={() => onAddFavorites(item)}
-              />
-            ))}
-          </section>
+          {status === "loading" ? (
+            <div style={{ width: "100%" }}>loading</div>
+          ) : items.length > 0 ? (
+            <section className={styles.gamesContent}>
+              {items.map((item) => (
+                <GameCard
+                  key={item.id}
+                  {...item}
+                  onClick={() => onAddFavorites(item)}
+                />
+              ))}
+            </section>
+          ) : (
+            <div className={styles.gamesEmpty}>
+              <svg
+                className={styles.gamesEmptyIcon}
+                xmlns="http://www.w3.org/2000/svg"
+                width="40"
+                height="40"
+                fill="currentColor"
+                viewBox="0 0 256 256"
+              >
+                <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216ZM80,108a12,12,0,1,1,12,12A12,12,0,0,1,80,108Zm96,0a12,12,0,1,1-12-12A12,12,0,0,1,176,108Zm-1.08,64a8,8,0,1,1-13.84,8c-7.47-12.91-19.21-20-33.08-20s-25.61,7.1-33.08,20a8,8,0,1,1-13.84-8c10.29-17.79,27.39-28,46.92-28S164.63,154.2,174.92,172Z"></path>
+              </svg>
+              <p>No games found.</p>
+            </div>
+          )}
         </div>
+        {items.length > 0 && <Pagination />}
       </section>
     </main>
   );

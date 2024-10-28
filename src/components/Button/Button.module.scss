@@ -17,8 +17,12 @@
         background-color: var(--color-dark);
     }
 
+    &:disabled {
+        opacity: 0.2;
+    }
+
     @media (hover: hover) {
-        &:hover {
+        &:not(&:disabled):hover {
             background-color: var(--color-additional);
         }
     }

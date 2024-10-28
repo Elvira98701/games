@@ -4,7 +4,8 @@ import axios from "axios";
 export const fetchGames = createAsyncThunk(
   "games/fetchGames",
   async (params, thunkAPI) => {
-    const { pageSize, genreId, platformId, sort } = params;
+    const { pageSize, genreId, platformId, sort, searchValue, currentPage } =
+      params;
     try {
       const response = await axios.get(
         `https://api.rawg.io/api/games?discover=true&key=${
@@ -16,6 +17,8 @@ export const fetchGames = createAsyncThunk(
             ...(genreId !== 0 && { genres: genreId }),
             ...(platformId !== 0 && { platforms: platformId }),
             ...(sort && { ordering: sort }),
+            ...(searchValue !== "" && { search: searchValue }),
+            page: currentPage,
           },
         }
       );
@@ -30,6 +33,7 @@ const gamesSlice = createSlice({
   name: "games",
   initialState: {
     items: [],
+    count: 0,
     status: "loading",
   },
   reducers: {},
@@ -41,6 +45,7 @@ const gamesSlice = createSlice({
     builder.addCase(fetchGames.fulfilled, (state, action) => {
       state.status = "success";
       state.items = action.payload.results;
+      state.count = action.payload.count;
     });
 
     builder.addCase(fetchGames.rejected, (state) => {

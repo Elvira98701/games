@@ -1,6 +1,22 @@
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { setPage, setSearchValue } from "@redux/filter/slice";
+
 import styles from "./Search.module.scss";
 
 const Search = () => {
+  const dispatch = useDispatch();
+  const [inputValue, setInputValue] = useState("");
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      dispatch(setSearchValue(inputValue));
+      dispatch(setPage(1));
+    }, 800);
+
+    return () => clearTimeout(timeoutId);
+  }, [inputValue, dispatch]);
+
   return (
     <div className={styles.search}>
       <svg
@@ -17,6 +33,8 @@ const Search = () => {
         className={styles.searchInput}
         type="search"
         placeholder="Search for games..."
+        value={inputValue}
+        onChange={(event) => setInputValue(event.target.value)}
       />
     </div>
   );

@@ -1,6 +1,7 @@
 .games {
     background: url('@assets/images/bg.jpg') center top / 100% no-repeat;
     position: relative;
+    min-height: 100vh;
 
     @media (max-width: 1050px) {
         background-size: 200%;
@@ -13,25 +14,18 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-image: linear-gradient(to bottom, rgb(0 0 0 / 0.1) 0%, var(--color-dark) 42%);
+        background-image: linear-gradient(to bottom, rgb(0 0 0 / 0.1) 0%, var(--color-dark) 55vh);
         z-index: 0;
 
-        @media (max-width: 1400px) {
-            background-image: linear-gradient(to bottom, rgb(0 0 0 / 0.1) 0%, var(--color-dark) 25%);
-        }
-
-        @media (max-width: 1200px) {
-            background-image: linear-gradient(to bottom, rgb(0 0 0 / 0.1) 0%, var(--color-dark) 15%);
-        }
-
         @media (max-width: 750px) {
-            background-image: linear-gradient(to bottom, rgb(0 0 0 / 0.1) 0%, var(--color-dark) 5%);
+            background-image: linear-gradient(to bottom, rgb(0 0 0 / 0.1) 0%, var(--color-dark) 30vh);
         }
     }
 
     &Container {
         z-index: 1;
         position: relative;
+        margin-bottom: 50px;
     }
 
     &Banner {
@@ -124,6 +118,19 @@
 
         @media (max-width: 750px) {
             grid-template-columns: repeat(1, 1fr);
+        }
+    }
+
+    &Empty {
+        height: 300px;
+        @include flex-center;
+        -moz-column-gap: 10px;
+        column-gap: 10px;
+        width: 100%;
+
+        @media (max-width: 750px) {
+            flex-direction: column;
+            row-gap: 10px;
         }
     }
 }

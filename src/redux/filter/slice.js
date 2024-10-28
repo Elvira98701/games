@@ -5,6 +5,8 @@ const initialState = {
   genreId: 0,
   platformId: 0,
   sort: false,
+  currentPage: 1,
+  pageSize: 12,
 };
 
 const filterSlice = createSlice({
@@ -23,10 +25,13 @@ const filterSlice = createSlice({
     setSearchValue(state, action) {
       state.searchValue = action.payload;
     },
+    setPage(state, action) {
+      state.currentPage = action.payload;
+    },
   },
 });
 
-export const { setGenreId, setPlatformId, setSort, setSearchValue } =
+export const { setGenreId, setPlatformId, setSort, setSearchValue, setPage } =
   filterSlice.actions;
 
 export default filterSlice.reducer;

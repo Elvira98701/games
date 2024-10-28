@@ -2,8 +2,8 @@
     padding-block: var(--section-block);
 
     &Title {
-        border-bottom: 1px solid var(--color-grey);
         padding-bottom: 20px;
+        transition: all 0.5s;
     }
 }
 
@@ -15,6 +15,7 @@
     height: 520px;
     overflow: hidden;
     padding-top: 20px;
+    border-top: 1px solid var(--color-grey);
 }
 
 .slidesWrapper {

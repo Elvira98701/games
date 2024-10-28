@@ -1,6 +1,12 @@
 import styles from "./Button.module.scss";
 
-const Button = ({ children, onClick, active = false, accent = false }) => {
+const Button = ({
+  children,
+  onClick,
+  active = false,
+  accent = false,
+  disabled = false,
+}) => {
   return (
     <button
       className={`${styles.button} ${active ? styles.buttonActive : ""} ${
@@ -8,6 +14,7 @@ const Button = ({ children, onClick, active = false, accent = false }) => {
       }`}
       type="button"
       onClick={onClick}
+      disabled={disabled}
     >
       {children}
     </button>

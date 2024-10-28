@@ -1,10 +1,19 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { setGenreId, setPage } from "@redux/filter/slice";
 import Button from "@components/Button";
 
 import styles from "./Genres.module.scss";
 
-const Genres = ({ value, onChangeGenre }) => {
+const Genres = () => {
+  const dispatch = useDispatch();
+  const { genreId } = useSelector((state) => state.filter);
   const { items } = useSelector((state) => state.genres);
+
+  const onChangeGenre = (event, id) => {
+    event.stopPropagation();
+    dispatch(setGenreId(id));
+    dispatch(setPage(1));
+  };
 
   return (
     <div className={styles.genres}>
@@ -12,7 +21,10 @@ const Genres = ({ value, onChangeGenre }) => {
       <div className={styles.genresBlock}>
         <div className={styles.genre}>
           <div className={`${styles.image} ${styles.imageAll}`}></div>
-          <Button onClick={() => onChangeGenre(0)} active={value === 0}>
+          <Button
+            onClick={(event) => onChangeGenre(event, 0)}
+            active={genreId === 0}
+          >
             All genres
           </Button>
         </div>
@@ -22,7 +34,10 @@ const Genres = ({ value, onChangeGenre }) => {
               className={styles.image}
               style={{ backgroundImage: `url(${image_background})` }}
             ></div>
-            <Button onClick={() => onChangeGenre(id)} active={value === id}>
+            <Button
+              onClick={(event) => onChangeGenre(event, id)}
+              active={genreId === id}
+            >
               {name}
             </Button>
           </div>

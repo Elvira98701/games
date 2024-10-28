@@ -1,15 +1,18 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleItem } from "@redux/favourites/slice";
 import { Link } from "react-router-dom";
 
 import styles from "./TopGames.module.scss";
+import useAnimation from "@hooks/useAnimation";
 
 const TopGames = ({ slides = [] }) => {
   const { favourites } = useSelector((state) => state.favourites);
   const dispatch = useDispatch();
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [slidesVisibleCount, setSlidesVisibleCount] = useState(1);
+  const titleRef = useRef(null);
+  const isTitleAnimated = useAnimation(titleRef);
 
   const updateSlidesVisibleCount = () => {
     if (window.innerWidth <= 600) {
@@ -36,7 +39,16 @@ const TopGames = ({ slides = [] }) => {
   return (
     <section className={styles.topGames}>
       <div className="container">
-        <h2 className={styles.topGamesTitle}>Top games</h2>
+        <h2
+          className={styles.topGamesTitle}
+          ref={titleRef}
+          style={{
+            transform: isTitleAnimated ? "translateY(0)" : "translateY(100px)",
+            opacity: isTitleAnimated ? "1" : "0",
+          }}
+        >
+          Top games
+        </h2>
         <div className={styles.sliderContainer}>
           <div
             className={styles.slidesWrapper}
