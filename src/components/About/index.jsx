@@ -28,6 +28,7 @@ const About = () => {
       <div className="container">
         <div className={styles.aboutHeader}>
           <svg
+            className={styles.aboutIcon}
             width="60"
             height="60"
             viewBox="0 0 64 64"

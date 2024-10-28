@@ -6,6 +6,45 @@
         background-color: var(--color-light);
         color: var(--color-dark);
         border-radius: 24px;
-        padding-block: 50px;
+        padding: clamp(0.625rem, 0.125rem + 2.5vw, 3.125rem);
+    }
+
+    &List {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+        -moz-column-gap: clamp(0.625rem, 0.125rem + 2.5vw, 3.125rem);
+        column-gap: clamp(0.625rem, 0.125rem + 2.5vw, 3.125rem);
+    }
+
+    &Item {
+        height: clamp(3.75rem, 3rem + 3.75vw, 7.5rem);
+        font-weight: 700;
+        font-size: clamp(0.75rem, 0.65rem + 0.5vw, 1.25rem);
+        position: relative;
+
+        &:not(:last-child):not(:nth-child(9)) {
+            border-bottom: 1px solid var(--color-dark);
+        }
+    }
+
+    &Name {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    &Icon {
+        @include square(50px);
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+
+        @media (max-width: 800px) {
+            @include square(25px);
+        }
     }
 }

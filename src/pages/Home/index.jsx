@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import TopGames from "@components/TopGames";
 import About from "@components/About";
 import TopDevelopers from "@components/TopDevelopers";
+import BrowseAllGames from "@components/BrowseAllGames";
 
 const Home = () => {
   const { slides } = useSelector((state) => state.slider);
@@ -14,6 +15,7 @@ const Home = () => {
       <About />
       <TopGames slides={[...slides.slice(0, 7), ...slides.slice(8)]} />
       <TopDevelopers />
+      <BrowseAllGames />
     </main>
   );
 };

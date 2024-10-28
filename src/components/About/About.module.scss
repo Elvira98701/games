@@ -6,6 +6,11 @@
         text-align: center;
     }
 
+    &Icon {
+        -webkit-animation: rotateAnim 5s linear infinite;
+        animation: rotateAnim 5s linear infinite;
+    }
+
     &Title {
         margin-top: 10px;
     }
@@ -112,5 +117,25 @@
         @media (max-width: 600px) {
             width: 100%;
         }
+    }
+}
+
+@-webkit-keyframes rotateAnim {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotateAnim {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
     }
 }

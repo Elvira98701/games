@@ -1,0 +1,41 @@
+.browseAllGames {
+    padding-bottom: var(--section-block);
+    text-align: center;
+
+    &Inner {
+        @include flex-center;
+        flex-direction: column;
+        row-gap: 30px;
+    }
+
+    &Description {
+        font-size: clamp(3.125rem, 2.5rem + 3.13vw, 6.25rem);
+        font-family: var(--font-family-accent);
+        line-height: 1;
+        width: 70%;
+
+        @media (max-width: 1050px) {
+            width: 90%;
+        }
+    }
+
+    &Link {
+        text-transform: capitalize;
+        padding: 10px 15px;
+        background-color: var(--color-additional);
+        border-radius: var(--border-radius);
+        font-weight: 700;
+        font-size: 14px;
+
+        @media (max-width: 770px) {
+            font-size: 12px;
+            padding: 10px;
+        }
+    }
+
+    &Accent {
+        text-transform: uppercase;
+        -webkit-text-stroke: 1px var(--color-light);
+        -webkit-text-fill-color: transparent;
+    }
+}
