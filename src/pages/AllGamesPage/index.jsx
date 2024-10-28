@@ -14,6 +14,7 @@ import { toggleItem } from "@redux/favourites/slice";
 import styles from "./AllGamesPage.module.scss";
 import Sort from "@components/Sort";
 import Pagination from "@components/Pagination";
+import Skeleton from "@components/Skeleton";
 
 const AllGamesPage = () => {
   const dispatch = useDispatch();
@@ -96,7 +97,7 @@ const AllGamesPage = () => {
             </div>
           </div>
           {status === "loading" ? (
-            <div style={{ width: "100%" }}>loading</div>
+            <Skeleton />
           ) : items.length > 0 ? (
             <section className={styles.gamesContent}>
               {items.map((item) => (

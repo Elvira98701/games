@@ -5,18 +5,25 @@ import TopGames from "@components/TopGames";
 import About from "@components/About";
 import TopDevelopers from "@components/TopDevelopers";
 import BrowseAllGames from "@components/BrowseAllGames";
+import Preloader from "@components/Preloader";
 
 const Home = () => {
-  const { slides } = useSelector((state) => state.slider);
+  const { slides, status } = useSelector((state) => state.slider);
 
   return (
-    <main className={styles.home}>
-      <Slider slides={slides.slice(9)} />
-      <About />
-      <TopGames slides={[...slides.slice(0, 7), ...slides.slice(8)]} />
-      <TopDevelopers />
-      <BrowseAllGames />
-    </main>
+    <>
+      {status === "loading" ? (
+        <Preloader />
+      ) : (
+        <main className={styles.home}>
+          <Slider slides={slides.slice(9)} />
+          <About />
+          <TopGames slides={[...slides.slice(0, 7), ...slides.slice(8)]} />
+          <TopDevelopers />
+          <BrowseAllGames />
+        </main>
+      )}
+    </>
   );
 };
 
