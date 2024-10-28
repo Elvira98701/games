@@ -166,6 +166,8 @@ const Slider = memo(function Slider({ slides = [] }) {
         <svg
           className={styles.sliderCircleIcon}
           xmlns="http://www.w3.org/2000/svg"
+          preserveAspectRatio="xMinYMin meet"
+          viewBox="0 0 150 150"
         >
           <circle
             className={styles.sliderCircleIconMain}

@@ -3,6 +3,7 @@ import styles from "./TopDevelopers.module.scss";
 
 const TopDevelopers = () => {
   const { developers } = useSelector((state) => state.developers);
+
   return (
     <section className={styles.topDevelopers}>
       <div className="container">
@@ -10,6 +11,7 @@ const TopDevelopers = () => {
           <h2>
             Developers{" "}
             <svg
+              className={styles.topDevelopersStar}
               width="50"
               height="50"
               viewBox="0 0 64 64"

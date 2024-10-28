@@ -9,6 +9,13 @@
         padding: clamp(0.625rem, 0.125rem + 2.5vw, 3.125rem);
     }
 
+    &Star {
+        width: clamp(1.875rem, 1.125rem + 3.75vw, 5.625rem);
+        height: auto;
+        -webkit-animation: rotateAnim 5s linear infinite;
+        animation: rotateAnim 5s linear infinite;
+    }
+
     &List {
         width: 100%;
         display: grid;
@@ -46,5 +53,25 @@
         @media (max-width: 800px) {
             @include square(25px);
         }
+    }
+}
+
+@-webkit-keyframes rotateAnim {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotateAnim {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
     }
 }
