@@ -52,6 +52,18 @@
 
         @media (max-width: 750px) {
             justify-content: center;
+            flex-direction: column-reverse;
+            row-gap: 10px;
+        }
+    }
+
+    &Wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        @media (max-width: 650px) {
+            width: 100%;
         }
     }
 

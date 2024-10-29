@@ -12,7 +12,7 @@ const Game = () => {
 
   useEffect(() => {
     dispatch(fetchGame(id));
-  }, [id]);
+  }, [id, dispatch]);
 
   return (
     <>

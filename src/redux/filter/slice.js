@@ -4,7 +4,7 @@ const initialState = {
   searchValue: "",
   genreId: 0,
   platformId: 0,
-  sort: false,
+  sort: "-added",
   currentPage: 1,
   pageSize: 12,
 };

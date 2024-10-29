@@ -16,7 +16,7 @@ export const fetchGames = createAsyncThunk(
             page_size: pageSize,
             ...(genreId !== 0 && { genres: genreId }),
             ...(platformId !== 0 && { platforms: platformId }),
-            ...(sort && { ordering: sort }),
+            ordering: sort,
             ...(searchValue !== "" && { search: searchValue }),
             page: currentPage,
           },

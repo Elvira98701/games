@@ -1,10 +1,15 @@
 .sort {
     position: relative;
+    width: 200px;
+
+    @media (max-width: 650px) {
+        width: 100%;
+    }
 
     &Label {
         background-color: var(--color-additional);
         background-image: linear-gradient(to right, var(--color-additional), var(--color-dark));
-        color: var(--color-grey);
+        color: rgb(255 255 255 / 0.5);
         border: none;
         padding: 10px;
         width: 200px;

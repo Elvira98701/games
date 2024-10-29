@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
-import styles from "./About.module.scss";
 import { useRef } from "react";
 import useAnimation from "@hooks/useAnimation";
+
+import styles from "./About.module.scss";
 
 const aboutList = [
   {

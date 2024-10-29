@@ -2,21 +2,21 @@ import { Route, Routes } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
+import { fetchSlider } from "@redux/slider/slice";
+import { fetchGenres } from "@redux/genres/slice";
+import { fetchPlatforms } from "@redux/platforms/slice";
+import { fetchDevelopers } from "@redux/developers/slice";
+import { fetchGames } from "@redux/games/slice";
+
 import Home from "@pages/Home";
 import Game from "@pages/Game";
 import AllGamesPage from "@pages/AllGamesPage";
 import Favourites from "@pages/Favourites";
 import Header from "@components/Header";
+import Footer from "@components/Footer";
 import ScrollToTop from "@helpers/scrollToTop";
 
-import { fetchSlider } from "@redux/slider/slice";
-import { fetchGenres } from "@redux/genres/slice";
-import { fetchPlatforms } from "@redux/platforms/slice";
-import { fetchDevelopers } from "@redux/developers/slice";
-
 import "@styles/index.scss";
-import Footer from "@components/Footer";
-import { fetchGames } from "@redux/games/slice";
 
 const App = () => {
   const dispatch = useDispatch();

@@ -16,23 +16,23 @@
         border-radius: var(--border-radius);
 
         &::-webkit-input-placeholder {
-            color: var(--color-grey);
+            color: rgb(255 255 255 / 0.5);
         }
 
         &::-moz-placeholder {
-            color: var(--color-grey);
+            color: rgb(255 255 255 / 0.5);
         }
 
         &:-ms-input-placeholder {
-            color: var(--color-grey);
+            color: rgb(255 255 255 / 0.5);
         }
 
         &::-ms-input-placeholder {
-            color: var(--color-grey);
+            color: rgb(255 255 255 / 0.5);
         }
 
         &::placeholder {
-            color: var(--color-grey);
+            color: rgb(255 255 255 / 0.5);
         }
 
     }
@@ -42,5 +42,6 @@
         top: 50%;
         left: 8px;
         transform: translateY(-50%);
+        color: rgb(255 255 255 / 0.5);
     }
 }

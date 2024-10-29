@@ -28,10 +28,17 @@
         border-radius: var(--border-radius);
         font-weight: 700;
         font-size: 14px;
+        transition: all 0.3s;
 
         @media (max-width: 770px) {
             font-size: 12px;
             padding: 10px;
+        }
+
+        @media (hover:hover) {
+            &:hover {
+                background-color: var(--color-additional-light);
+            }
         }
     }
 

@@ -7,7 +7,6 @@ import Button from "@components/Button";
 import Platforms from "@components/Plarforms";
 import Search from "@components/Search";
 
-import { setSort } from "@redux/filter/slice";
 import { toggleItem } from "@redux/favourites/slice";
 
 import styles from "./AllGamesPage.module.scss";
@@ -18,12 +17,7 @@ import Skeleton from "@components/Skeleton";
 const AllGamesPage = memo(function AllGamesPage() {
   const dispatch = useDispatch();
   const { items, status } = useSelector((state) => state.games);
-
   const [isOpenModal, setIsOpenModal] = useState(false);
-
-  const onChangeSort = (value) => {
-    dispatch(setSort(value));
-  };
 
   const onAddFavorites = (obj) => {
     dispatch(toggleItem(obj));
@@ -45,25 +39,27 @@ const AllGamesPage = memo(function AllGamesPage() {
           <h1 className={styles.gamesTitle}>All games</h1>
         </div>
         <div className={styles.gamesHeader}>
-          {/* <Sort value={sort} onChangeSort={onChangeSort} /> */}
-          <Search />
-          <div className={styles.gamesButtons}>
-            <Button
-              onClick={(event) => {
-                event.stopPropagation();
-                setIsOpenModal(!isOpenModal);
-              }}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                fill="#e0e1dd"
-                viewBox="0 0 256 256"
+          <Sort />
+          <div className={styles.gamesWrapper}>
+            <Search />
+            <div className={styles.gamesButtons}>
+              <Button
+                onClick={(event) => {
+                  event.stopPropagation();
+                  setIsOpenModal(!isOpenModal);
+                }}
               >
-                <path d="M176,80a8,8,0,0,1,8-8h32a8,8,0,0,1,0,16H184A8,8,0,0,1,176,80ZM40,88H144v16a8,8,0,0,0,16,0V56a8,8,0,0,0-16,0V72H40a8,8,0,0,0,0,16Zm176,80H120a8,8,0,0,0,0,16h96a8,8,0,0,0,0-16ZM88,144a8,8,0,0,0-8,8v16H40a8,8,0,0,0,0,16H80v16a8,8,0,0,0,16,0V152A8,8,0,0,0,88,144Z"></path>
-              </svg>
-            </Button>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  fill="#e0e1dd"
+                  viewBox="0 0 256 256"
+                >
+                  <path d="M176,80a8,8,0,0,1,8-8h32a8,8,0,0,1,0,16H184A8,8,0,0,1,176,80ZM40,88H144v16a8,8,0,0,0,16,0V56a8,8,0,0,0-16,0V72H40a8,8,0,0,0,0,16Zm176,80H120a8,8,0,0,0,0,16h96a8,8,0,0,0,0-16ZM88,144a8,8,0,0,0-8,8v16H40a8,8,0,0,0,0,16H80v16a8,8,0,0,0,16,0V152A8,8,0,0,0,88,144Z"></path>
+                </svg>
+              </Button>
+            </div>
           </div>
         </div>
 
