@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import Home from "@pages/Home";
 import Game from "@pages/Game";
@@ -16,9 +16,12 @@ import { fetchDevelopers } from "@redux/developers/slice";
 
 import "@styles/index.scss";
 import Footer from "@components/Footer";
+import { fetchGames } from "@redux/games/slice";
 
 const App = () => {
   const dispatch = useDispatch();
+  const { genreId, platformId, sort, searchValue, currentPage, pageSize } =
+    useSelector((state) => state.filter);
 
   useEffect(() => {
     dispatch(fetchSlider());
@@ -26,6 +29,19 @@ const App = () => {
     dispatch(fetchPlatforms());
     dispatch(fetchDevelopers());
   }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(
+      fetchGames({
+        pageSize,
+        genreId,
+        platformId,
+        sort,
+        searchValue,
+        currentPage,
+      })
+    );
+  }, [genreId, platformId, sort, searchValue, currentPage, pageSize, dispatch]);
 
   return (
     <div className="App">

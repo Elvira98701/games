@@ -11,7 +11,9 @@ const Search = () => {
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       dispatch(setSearchValue(inputValue));
-      dispatch(setPage(1));
+      if (inputValue.length > 0) {
+        dispatch(setPage(1));
+      }
     }, 800);
 
     return () => clearTimeout(timeoutId);

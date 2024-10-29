@@ -7,7 +7,6 @@ import Button from "@components/Button";
 import Platforms from "@components/Plarforms";
 import Search from "@components/Search";
 
-import { fetchGames } from "@redux/games/slice";
 import { setSort } from "@redux/filter/slice";
 import { toggleItem } from "@redux/favourites/slice";
 
@@ -19,8 +18,7 @@ import Skeleton from "@components/Skeleton";
 const AllGamesPage = memo(function AllGamesPage() {
   const dispatch = useDispatch();
   const { items, status } = useSelector((state) => state.games);
-  const { genreId, platformId, sort, searchValue, currentPage, pageSize } =
-    useSelector((state) => state.filter);
+
   const [isOpenModal, setIsOpenModal] = useState(false);
 
   const onChangeSort = (value) => {
@@ -39,19 +37,6 @@ const AllGamesPage = memo(function AllGamesPage() {
 
     return () => document.removeEventListener("click", closeModal);
   }, []);
-
-  useEffect(() => {
-    dispatch(
-      fetchGames({
-        pageSize,
-        genreId,
-        platformId,
-        sort,
-        searchValue,
-        currentPage,
-      })
-    );
-  }, [genreId, platformId, sort, searchValue, currentPage, pageSize, dispatch]);
 
   return (
     <main className={styles.games}>
