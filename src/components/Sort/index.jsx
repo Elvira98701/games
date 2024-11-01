@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import styles from "./Sort.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { setSort } from "@redux/filter/slice";
+import styles from "./Sort.module.scss";
 
 const sortList = [
   { id: 1, name: "-added", title: "Popularity" },

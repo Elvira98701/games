@@ -1,16 +1,48 @@
 import { Link } from "react-router-dom";
 import styles from "./BrowseAllGames.module.scss";
+import useAnimation from "@hooks/useAnimation";
+import { useRef } from "react";
 
 const BrowseAllGames = () => {
+  const containerRef = useRef(null);
+  const isAnimated = useAnimation(containerRef);
   return (
     <section className={styles.browseAllGames}>
       <div className={`${styles.browseAllGamesInner} container`}>
-        <p className={styles.browseAllGamesDescription}>
-          It&apos;s <span className={styles.browseAllGamesAccent}>easy</span>{" "}
-          and fast to <span className={styles.browseAllGamesAccent}>find</span>{" "}
-          the right <span className={styles.browseAllGamesAccent}>game</span>,
-          read the description and see the{" "}
-          <span className={styles.browseAllGamesAccent}>ratings</span>.
+        <p className={styles.browseAllGamesDescription} ref={containerRef}>
+          It&apos;s{" "}
+          <span
+            className={`${styles.browseAllGamesAccent} ${
+              isAnimated ? styles.isAnimated : ""
+            }`}
+          >
+            easy
+          </span>{" "}
+          and fast to{" "}
+          <span
+            className={`${styles.browseAllGamesAccent} ${
+              isAnimated ? styles.isAnimated : ""
+            }`}
+          >
+            find
+          </span>{" "}
+          the right{" "}
+          <span
+            className={`${styles.browseAllGamesAccent} ${
+              isAnimated ? styles.isAnimated : ""
+            }`}
+          >
+            game
+          </span>
+          , read the description and see the{" "}
+          <span
+            className={`${styles.browseAllGamesAccent} ${
+              isAnimated ? styles.isAnimated : ""
+            }`}
+          >
+            ratings
+          </span>
+          .
         </p>
         <Link className={styles.browseAllGamesLink} to="/games">
           See games

@@ -49,12 +49,10 @@ const About = () => {
             ></path>
           </svg>
           <h2
-            className={styles.aboutTitle}
+            className={`${styles.aboutTitle} ${
+              isTitleAnimated ? styles.aboutTitleAnimated : ""
+            }`}
             ref={titleRef}
-            style={{
-              transform: isTitleAnimated ? "translateY(0)" : "translateY(100px)",
-              opacity: isTitleAnimated ? "1" : "0",
-            }}
           >
             About us
           </h2>

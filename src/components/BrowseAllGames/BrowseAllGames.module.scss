@@ -43,6 +43,11 @@
     &Accent {
         text-transform: uppercase;
         -webkit-text-stroke: 1px var(--color-light);
-        -webkit-text-fill-color: transparent;
+        color: var(--color-light);
+        transition: all 0.5s;
     }
+}
+
+.isAnimated {
+    color: var(--color-dark);
 }

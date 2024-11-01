@@ -40,12 +40,10 @@ const TopGames = ({ slides = [] }) => {
     <section className={styles.topGames}>
       <div className="container">
         <h2
-          className={styles.topGamesTitle}
+          className={`${styles.topGamesTitle} ${
+            isTitleAnimated ? styles.topGamesTitleAnimated : ""
+          }`}
           ref={titleRef}
-          style={{
-            transform: isTitleAnimated ? "translateY(0)" : "translateY(100px)",
-            opacity: isTitleAnimated ? "1" : "0",
-          }}
         >
           Top games
         </h2>
@@ -98,10 +96,13 @@ const TopGames = ({ slides = [] }) => {
             className={styles.nextSlideButton}
             onClick={() =>
               setCurrentSlideIndex(
-                Math.min(currentSlideIndex + 1, slides.length - 1)
+                Math.min(
+                  currentSlideIndex + 1,
+                  slides.length - slidesVisibleCount
+                )
               )
             }
-            disabled={currentSlideIndex === slides.length - 1}
+            disabled={currentSlideIndex === slides.length - slidesVisibleCount}
             type="button"
           ></button>
         </div>

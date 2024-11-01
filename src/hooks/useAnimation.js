@@ -5,7 +5,9 @@ const useAnimation = (elementRef) => {
 
   const onEntry = (entries) => {
     const [entry] = entries;
-    setIsAnimation(entry.isIntersecting);
+    if (entry.isIntersecting && !isAnimation) {
+      setIsAnimation(true);
+    }
   };
 
   const options = {
