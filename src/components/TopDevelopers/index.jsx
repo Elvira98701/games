@@ -1,8 +1,12 @@
 import { useSelector } from "react-redux";
 import styles from "./TopDevelopers.module.scss";
+import { useRef } from "react";
+import useAnimation from "@hooks/useAnimation";
 
 const TopDevelopers = () => {
   const { developers } = useSelector((state) => state.developers);
+  const containerRef = useRef(null);
+  const isAnimated = useAnimation(containerRef);
 
   return (
     <section className={styles.topDevelopers}>
@@ -26,9 +30,15 @@ const TopDevelopers = () => {
               ></path>
             </svg>
           </h2>
-          <ul className={styles.topDevelopersList}>
-            {developers.map((developer) => (
-              <li className={styles.topDevelopersItem} key={developer.id}>
+          <ul className={styles.topDevelopersList} ref={containerRef}>
+            {developers.map((developer, index) => (
+              <li
+                className={`${styles.topDevelopersItem} ${
+                  isAnimated ? styles.topDevelopersItemAnimated : ""
+                }`}
+                style={{ transitionDelay: `${index * 0.2}s` }}
+                key={developer.id}
+              >
                 <span className={styles.topDevelopersName}>
                   {developer.name}
                 </span>
