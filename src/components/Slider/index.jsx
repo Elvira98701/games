@@ -1,9 +1,10 @@
-import { Link } from "react-router-dom";
-import styles from "./Slider.module.scss";
 import { memo, useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { toggleItem } from "@redux/favourites/slice";
 import Button from "@components/Button";
-import { useDispatch, useSelector } from "react-redux";
+
+import styles from "./Slider.module.scss";
 
 const Slider = memo(function Slider({ slides = [] }) {
   const dispatch = useDispatch();
@@ -130,7 +131,7 @@ const Slider = memo(function Slider({ slides = [] }) {
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
       >
-        {slides.map(({ id, background_image }, index) => (
+        {slides.map(({ id, background_image, name }, index) => (
           <article
             onClick={() => setCurrentSlideIndex(index)}
             className={
@@ -147,7 +148,7 @@ const Slider = memo(function Slider({ slides = [] }) {
                   : styles.slideImage
               }
               src={background_image}
-              alt={`Slide ${index}`}
+              alt={name}
             />
           </article>
         ))}

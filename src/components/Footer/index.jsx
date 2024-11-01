@@ -1,4 +1,3 @@
-import Logo from "@components/Logo";
 import styles from "./Footer.module.scss";
 
 const SOCIALS = [

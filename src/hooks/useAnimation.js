@@ -9,7 +9,7 @@ const useAnimation = (elementRef) => {
   };
 
   const options = {
-    threshold: 0.5,
+    threshold: 1,
   };
 
   useEffect(() => {

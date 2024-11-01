@@ -52,9 +52,7 @@ const About = () => {
             className={styles.aboutTitle}
             ref={titleRef}
             style={{
-              transform: isTitleAnimated
-                ? "translateY(0)"
-                : "translateY(100px)",
+              transform: isTitleAnimated ? "translateY(0)" : "translateY(100px)",
               opacity: isTitleAnimated ? "1" : "0",
             }}
           >
