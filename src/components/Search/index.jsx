@@ -34,6 +34,8 @@ const Search = () => {
       <input
         className={styles.searchInput}
         type="search"
+        name="search"
+        autoComplete="off"
         placeholder="Search for games..."
         value={inputValue}
         onChange={(event) => setInputValue(event.target.value)}

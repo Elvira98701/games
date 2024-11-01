@@ -52,7 +52,11 @@ const Sort = () => {
       >
         <ul className={styles.sortList}>
           {sortList.map(({ id, name, title }) => (
-            <li key={id} onClick={(event) => onChangeSort(event, name)}>
+            <li
+              key={id}
+              onClick={(event) => onChangeSort(event, name)}
+              className={sort === name ? styles.isActive : ""}
+            >
               {title}
             </li>
           ))}

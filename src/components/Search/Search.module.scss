@@ -16,23 +16,23 @@
         border-radius: var(--border-radius);
 
         &::-webkit-input-placeholder {
-            color: rgb(255 255 255 / 0.5);
+            color: rgb(255 255 255 / 0.6);
         }
 
         &::-moz-placeholder {
-            color: rgb(255 255 255 / 0.5);
+            color: rgb(255 255 255 / 0.6);
         }
 
         &:-ms-input-placeholder {
-            color: rgb(255 255 255 / 0.5);
+            color: rgb(255 255 255 / 0.6);
         }
 
         &::-ms-input-placeholder {
-            color: rgb(255 255 255 / 0.5);
+            color: rgb(255 255 255 / 0.6);
         }
 
         &::placeholder {
-            color: rgb(255 255 255 / 0.5);
+            color: rgb(255 255 255 / 0.6);
         }
 
     }
@@ -42,6 +42,6 @@
         top: 50%;
         left: 8px;
         transform: translateY(-50%);
-        color: rgb(255 255 255 / 0.5);
+        color: rgb(255 255 255 / 0.6);
     }
 }
