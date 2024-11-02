@@ -10,7 +10,7 @@ const Pagination = () => {
   const { count } = useSelector((state) => state.games);
   const { currentPage, pageSize } = useSelector((state) => state.filter);
   const [visiblePages, setVisiblePages] = useState([]);
-  const totalPages = Math.ceil(count / pageSize);
+  const totalPages = Math.min(Math.ceil(count / pageSize), 500);
 
   useEffect(() => {
     if (totalPages <= 5) {
@@ -18,7 +18,7 @@ const Pagination = () => {
         Array.from({ length: totalPages }, (_, index) => index + 1)
       );
     } else {
-      if (currentPage <= 5) {
+      if (currentPage < 3) {
         setVisiblePages(Array.from({ length: 5 }, (_, index) => index + 1));
       } else {
         const start = Math.max(1, currentPage - 2);
@@ -28,20 +28,10 @@ const Pagination = () => {
         );
       }
     }
-    console.log(visiblePages);
   }, [totalPages, currentPage]);
 
   const handlePageChange = (page) => {
     dispatch(setPage(page));
-    updateVisiblePages(page);
-  };
-
-  const updateVisiblePages = (page) => {
-    if (totalPages > 5 && (page <= 3 || page >= totalPages - 2)) {
-      const start = Math.max(1, page - 2);
-      const end = Math.min(totalPages, page + 2);
-      setVisiblePages(visiblePages.slice(start - 1, end));
-    }
   };
 
   const handleNavigationClick = (direction) => {
