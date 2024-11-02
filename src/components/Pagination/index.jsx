@@ -28,6 +28,7 @@ const Pagination = () => {
         );
       }
     }
+    console.log(visiblePages);
   }, [totalPages, currentPage]);
 
   const handlePageChange = (page) => {
@@ -36,12 +37,10 @@ const Pagination = () => {
   };
 
   const updateVisiblePages = (page) => {
-    if (totalPages > 5) {
+    if (totalPages > 5 && (page <= 3 || page >= totalPages - 2)) {
       const start = Math.max(1, page - 2);
       const end = Math.min(totalPages, page + 2);
-      setVisiblePages(
-        Array.from({ length: end - start + 1 }, (_, index) => start + index)
-      );
+      setVisiblePages(visiblePages.slice(start - 1, end));
     }
   };
 
