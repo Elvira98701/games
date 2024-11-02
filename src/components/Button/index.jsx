@@ -6,12 +6,13 @@ const Button = ({
   active = false,
   accent = false,
   disabled = false,
+  square = false,
 }) => {
   return (
     <button
       className={`${styles.button} ${active ? styles.buttonActive : ""} ${
         accent ? styles.buttonAccent : ""
-      }`}
+      } ${square ? styles.buttonSquare : ""}`}
       type="button"
       onClick={onClick}
       disabled={disabled}

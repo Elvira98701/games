@@ -17,6 +17,14 @@
         background-color: var(--color-dark);
     }
 
+    &Square {
+        @include square(50px);
+
+        @media (max-width: 770px) {
+            @include square(35px);
+        }
+    }
+
     &:disabled {
         opacity: 0.2;
     }
