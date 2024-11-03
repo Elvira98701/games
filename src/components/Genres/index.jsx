@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { setGenreId, setPage } from "@redux/filter/slice";
+
 import Button from "@components/Button";
 
 import styles from "./Genres.module.scss";

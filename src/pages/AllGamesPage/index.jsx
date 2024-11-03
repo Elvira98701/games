@@ -1,18 +1,18 @@
 import { memo, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
+import { toggleItem } from "@redux/favourites/slice";
+
 import GameCard from "@components/GameCard";
 import Genres from "@components/Genres";
 import Button from "@components/Button";
 import Platforms from "@components/Plarforms";
 import Search from "@components/Search";
-
-import { toggleItem } from "@redux/favourites/slice";
-
-import styles from "./AllGamesPage.module.scss";
 import Sort from "@components/Sort";
 import Pagination from "@components/Pagination";
 import Skeleton from "@components/Skeleton";
+
+import styles from "./AllGamesPage.module.scss";
 
 const AllGamesPage = memo(function AllGamesPage() {
   const dispatch = useDispatch();

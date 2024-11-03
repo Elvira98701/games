@@ -12,8 +12,10 @@ import Home from "@pages/Home";
 import Game from "@pages/Game";
 import AllGamesPage from "@pages/AllGamesPage";
 import Favourites from "@pages/Favourites";
+
 import Header from "@components/Header";
 import Footer from "@components/Footer";
+
 import ScrollToTop from "@helpers/scrollToTop";
 
 import "@styles/index.scss";

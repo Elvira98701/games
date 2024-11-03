@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import styles from "./GameCard.module.scss";
 import { useSelector } from "react-redux";
+
+import styles from "./GameCard.module.scss";
 
 const GameCard = ({
   id,

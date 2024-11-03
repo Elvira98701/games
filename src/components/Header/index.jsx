@@ -1,5 +1,6 @@
 import Logo from "@components/Logo";
 import Nav from "@components/Nav";
+
 import styles from "./Header.module.scss";
 
 const Header = () => {

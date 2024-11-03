@@ -1,7 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
 import { setPage, setPlatformId } from "@redux/filter/slice";
-import { platformsList } from "@helpers/constants";
+
 import Button from "@components/Button";
+
+import { platformsList } from "@helpers/constants";
 
 import styles from "./Platforms.module.scss";
 

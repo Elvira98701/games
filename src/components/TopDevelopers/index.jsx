@@ -1,7 +1,8 @@
 import { useSelector } from "react-redux";
-import styles from "./TopDevelopers.module.scss";
 import { useRef } from "react";
 import useAnimation from "@hooks/useAnimation";
+
+import styles from "./TopDevelopers.module.scss";
 
 const TopDevelopers = () => {
   const { developers } = useSelector((state) => state.developers);

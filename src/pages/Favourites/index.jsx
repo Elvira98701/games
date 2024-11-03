@@ -1,9 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
-import styles from "./Favourites.module.scss";
-import GameCard from "@components/GameCard";
+
 import { clearItems, toggleItem } from "@redux/favourites/slice";
+
+import GameCard from "@components/GameCard";
 import FavouritesEmpty from "@components/FavouritesEmpty";
 import Button from "@components/Button";
+
+import styles from "./Favourites.module.scss";
 
 const Favourites = () => {
   const dispatch = useDispatch();

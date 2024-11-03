@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
-import styles from "./BrowseAllGames.module.scss";
-import useAnimation from "@hooks/useAnimation";
 import { useRef } from "react";
+import useAnimation from "@hooks/useAnimation";
+
+import styles from "./BrowseAllGames.module.scss";
 
 const BrowseAllGames = () => {
   const containerRef = useRef(null);
   const isAnimated = useAnimation(containerRef);
+
   return (
     <section className={styles.browseAllGames}>
       <div className={`${styles.browseAllGamesInner} container`}>
@@ -45,7 +47,7 @@ const BrowseAllGames = () => {
           .
         </p>
         <Link className={styles.browseAllGamesLink} to="/games">
-          See games
+          See all games
         </Link>
       </div>
     </section>

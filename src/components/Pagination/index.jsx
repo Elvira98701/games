@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+
 import { setPage } from "@redux/filter/slice";
+
 import Button from "@components/Button";
 
 import styles from "./Pagination.module.scss";

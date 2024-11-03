@@ -1,9 +1,12 @@
 import { Link, useParams } from "react-router-dom";
-import styles from "./Game.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
+
 import { fetchGame } from "@redux/game/slice";
+
 import Preloader from "@components/Preloader";
+
+import styles from "./Game.module.scss";
 
 const Game = () => {
   const { id } = useParams();
