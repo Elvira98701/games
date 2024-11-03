@@ -11,7 +11,7 @@ const GameCard = ({
   released,
   onClick,
 }) => {
-  const { favourites } = useSelector((state) => state.favourites);
+  const { favouritesList } = useSelector((state) => state.favourites);
 
   return (
     <article
@@ -46,7 +46,7 @@ const GameCard = ({
         width="32"
         height="32"
         fill={
-          favourites.findIndex((obj) => obj.id === id) !== -1
+          favouritesList.findIndex((obj) => obj.id === id) !== -1
             ? "#d90429"
             : "#e0e1dd"
         }

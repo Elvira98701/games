@@ -10,7 +10,7 @@ import styles from "./Slider.module.scss";
 
 const Slider = memo(function Slider({ slides = [] }) {
   const dispatch = useDispatch();
-  const { favourites } = useSelector((state) => state.favourites);
+  const { favouritesList } = useSelector((state) => state.favourites);
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [slidesVisibleCount, setSlidesVisibleCount] = useState(1);
   const [totalLengthCircle, setTotalLengthCircle] = useState(0);
@@ -116,7 +116,7 @@ const Slider = memo(function Slider({ slides = [] }) {
                 </div>
               </div>
               <Button accent={true} onClick={() => dispatch(toggleItem(item))}>
-                {favourites.findIndex((obj) => obj.id === item.id) !== -1
+                {favouritesList.findIndex((obj) => obj.id === item.id) !== -1
                   ? "Delete from favorites"
                   : "Add to favorites"}
               </Button>

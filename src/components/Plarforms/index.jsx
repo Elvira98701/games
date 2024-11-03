@@ -12,7 +12,7 @@ const Platforms = () => {
   const { platformId } = useSelector((state) => state.filter);
   const { items } = useSelector((state) => state.platforms);
 
-  const onChangePlatform = (event, id) => {
+  const handleChangePlatform = (event, id) => {
     event.stopPropagation();
     dispatch(setPlatformId(id));
     dispatch(setPage(1));
@@ -25,7 +25,7 @@ const Platforms = () => {
         <div className={styles.platform}>
           <div className={`${styles.image} ${styles.imageAll}`}></div>
           <Button
-            onClick={(event) => onChangePlatform(event, 0)}
+            onClick={(event) => handleChangePlatform(event, 0)}
             active={platformId === 0}
           >
             All platforms
@@ -38,7 +38,7 @@ const Platforms = () => {
               style={{ backgroundImage: `url("${platformsList[slug]}")` }}
             ></div>
             <Button
-              onClick={(event) => onChangePlatform(event, id)}
+              onClick={(event) => handleChangePlatform(event, id)}
               active={platformId === id}
             >
               {name}

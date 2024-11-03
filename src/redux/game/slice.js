@@ -21,21 +21,21 @@ const gameSlice = createSlice({
   name: "game",
   initialState: {
     game: {},
-    status: "loading",
+    gameFetchStatus: "loading",
   },
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchGame.pending, (state) => {
-      state.status = "loading";
+      state.gameFetchStatus = "loading";
     });
 
     builder.addCase(fetchGame.fulfilled, (state, action) => {
-      state.status = "success";
+      state.gameFetchStatus = "success";
       state.game = action.payload;
     });
 
     builder.addCase(fetchGame.rejected, (state) => {
-      state.status = "error";
+      state.gameFetchStatus = "error";
     });
   },
 });

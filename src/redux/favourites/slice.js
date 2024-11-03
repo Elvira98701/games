@@ -10,7 +10,7 @@ const getFromLocalStorage = () => {
 };
 
 const initialState = {
-  favourites: getFromLocalStorage() ?? [],
+  favouritesList: getFromLocalStorage() ?? [],
 };
 
 const favouritesSlice = createSlice({
@@ -18,22 +18,22 @@ const favouritesSlice = createSlice({
   initialState,
   reducers: {
     toggleItem(state, action) {
-      const existingIndex = state.favourites.findIndex(
+      const existingIndex = state.favouritesList.findIndex(
         (obj) => obj.id === action.payload.id
       );
 
       if (existingIndex === -1) {
-        state.favourites.push(action.payload);
+        state.favouritesList.push(action.payload);
       } else {
-        state.favourites = state.favourites.filter(
+        state.favouritesList = state.favouritesList.filter(
           (obj) => obj.id !== action.payload.id
         );
       }
 
-      localStorage.setItem("favourites", JSON.stringify(state.favourites));
+      localStorage.setItem("favourites", JSON.stringify(state.favouritesList));
     },
     clearItems(state) {
-      state.favourites = [];
+      state.favouritesList = [];
       localStorage.removeItem("favourites");
     },
   },

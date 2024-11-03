@@ -8,7 +8,7 @@ import { toggleItem } from "@redux/favourites/slice";
 import styles from "./TopGames.module.scss";
 
 const TopGames = ({ slides = [] }) => {
-  const { favourites } = useSelector((state) => state.favourites);
+  const { favouritesList } = useSelector((state) => state.favourites);
   const dispatch = useDispatch();
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [slidesVisibleCount, setSlidesVisibleCount] = useState(1);
@@ -74,7 +74,7 @@ const TopGames = ({ slides = [] }) => {
                   width="32"
                   height="32"
                   fill={
-                    favourites.findIndex((obj) => obj.id === item.id) !== -1
+                    favouritesList.findIndex((obj) => obj.id === item.id) !== -1
                       ? "#d90429"
                       : "#e0e1dd"
                   }

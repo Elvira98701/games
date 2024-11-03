@@ -4,7 +4,8 @@ import { useSelector } from "react-redux";
 import styles from "./Nav.module.scss";
 
 const Nav = () => {
-  const { favourites } = useSelector((state) => state.favourites);
+  const { favouritesList } = useSelector((state) => state.favourites);
+
   return (
     <nav>
       <ul className={styles.navList}>
@@ -17,10 +18,11 @@ const Nav = () => {
             <span
               className={styles.favouritesCounter}
               style={{
-                transform: favourites.length === 0 ? "scale(0)" : "scale(1)",
+                transform:
+                  favouritesList.length === 0 ? "scale(0)" : "scale(1)",
               }}
             >
-              {favourites.length}
+              {favouritesList.length}
             </span>
           </NavLink>
         </li>

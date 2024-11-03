@@ -10,7 +10,7 @@ const Genres = () => {
   const { genreId } = useSelector((state) => state.filter);
   const { items } = useSelector((state) => state.genres);
 
-  const onChangeGenre = (event, id) => {
+  const handleChangeGenre = (event, id) => {
     event.stopPropagation();
     dispatch(setGenreId(id));
     dispatch(setPage(1));
@@ -23,7 +23,7 @@ const Genres = () => {
         <div className={styles.genre}>
           <div className={`${styles.image} ${styles.imageAll}`}></div>
           <Button
-            onClick={(event) => onChangeGenre(event, 0)}
+            onClick={(event) => handleChangeGenre(event, 0)}
             active={genreId === 0}
           >
             All genres
@@ -36,7 +36,7 @@ const Genres = () => {
               style={{ backgroundImage: `url(${image_background})` }}
             ></div>
             <Button
-              onClick={(event) => onChangeGenre(event, id)}
+              onClick={(event) => handleChangeGenre(event, id)}
               active={genreId === id}
             >
               {name}

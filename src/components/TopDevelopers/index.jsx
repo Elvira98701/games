@@ -5,7 +5,7 @@ import useAnimation from "@hooks/useAnimation";
 import styles from "./TopDevelopers.module.scss";
 
 const TopDevelopers = () => {
-  const { developers } = useSelector((state) => state.developers);
+  const { developersList } = useSelector((state) => state.developers);
   const containerRef = useRef(null);
   const isAnimated = useAnimation(containerRef);
 
@@ -32,7 +32,7 @@ const TopDevelopers = () => {
             </svg>
           </h2>
           <ul className={styles.topDevelopersList} ref={containerRef}>
-            {developers.map((developer, index) => (
+            {developersList.map((developer, index) => (
               <li
                 className={`${styles.topDevelopersItem} ${
                   isAnimated ? styles.topDevelopersItemAnimated : ""

@@ -11,7 +11,7 @@ import styles from "./Game.module.scss";
 const Game = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
-  const { game, status } = useSelector((state) => state.game);
+  const { game, gameFetchStatus } = useSelector((state) => state.game);
 
   useEffect(() => {
     dispatch(fetchGame(id));
@@ -19,7 +19,7 @@ const Game = () => {
 
   return (
     <>
-      {status === "loading" ? (
+      {gameFetchStatus === "loading" ? (
         <Preloader />
       ) : (
         <main

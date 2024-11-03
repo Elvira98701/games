@@ -18,22 +18,22 @@ export const fetchDevelopers = createAsyncThunk(
 const developersSlice = createSlice({
   name: "developers",
   initialState: {
-    developers: [],
-    status: "loading",
+    developersList: [],
+    developersFetchStatus: "loading",
   },
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchDevelopers.pending, (state) => {
-      state.status = "loading";
+      state.developersFetchStatus = "loading";
     });
 
     builder.addCase(fetchDevelopers.fulfilled, (state, action) => {
-      state.status = "success";
-      state.developers = action.payload.results;
+      state.developersFetchStatus = "success";
+      state.developersList = action.payload.results;
     });
 
     builder.addCase(fetchDevelopers.rejected, (state) => {
-      state.status = "error";
+      state.developersFetchStatus = "error";
     });
   },
 });

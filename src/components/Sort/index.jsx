@@ -18,7 +18,7 @@ const Sort = () => {
 
   const currentTitle = sortList.find((obj) => obj.name === sort).title;
 
-  const onChangeSort = (event, value) => {
+  const handleChangeSort = (event, value) => {
     event.stopPropagation();
     dispatch(setSort(value));
     setOpenPopup(false);
@@ -56,7 +56,7 @@ const Sort = () => {
           {sortList.map(({ id, name, title }) => (
             <li
               key={id}
-              onClick={(event) => onChangeSort(event, name)}
+              onClick={(event) => handleChangeSort(event, name)}
               className={sort === name ? styles.isActive : ""}
             >
               {title}

@@ -10,9 +10,9 @@ import styles from "./Favourites.module.scss";
 
 const Favourites = () => {
   const dispatch = useDispatch();
-  const { favourites } = useSelector((state) => state.favourites);
+  const { favouritesList } = useSelector((state) => state.favourites);
 
-  const onAddFavorites = (obj) => {
+  const handleAddFavorites = (obj) => {
     dispatch(toggleItem(obj));
   };
   return (
@@ -36,20 +36,20 @@ const Favourites = () => {
         </h1>
         <div className={styles.favouritesWrapper}>
           <div className={styles.favouritesList}>
-            {favourites.length === 0 ? (
+            {favouritesList.length === 0 ? (
               <FavouritesEmpty />
             ) : (
-              favourites.map((item) => (
+              favouritesList.map((item) => (
                 <GameCard
                   key={item.id}
                   {...item}
-                  onClick={() => onAddFavorites(item)}
+                  onClick={() => handleAddFavorites(item)}
                 />
               ))
             )}
           </div>
         </div>
-        {favourites.length > 0 && (
+        {favouritesList.length > 0 && (
           <div className={styles.favouritesButtons}>
             <Button onClick={() => dispatch(clearItems())} active={true}>
               Delete all

@@ -19,7 +19,7 @@ const AllGamesPage = memo(function AllGamesPage() {
   const { items, status } = useSelector((state) => state.games);
   const [isOpenModal, setIsOpenModal] = useState(false);
 
-  const onAddFavorites = (obj) => {
+  const handleAddFavorites = (obj) => {
     dispatch(toggleItem(obj));
   };
 
@@ -85,7 +85,7 @@ const AllGamesPage = memo(function AllGamesPage() {
                 <GameCard
                   key={item.id}
                   {...item}
-                  onClick={() => onAddFavorites(item)}
+                  onClick={() => handleAddFavorites(item)}
                 />
               ))}
             </section>
