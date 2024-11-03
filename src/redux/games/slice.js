@@ -32,24 +32,24 @@ export const fetchGames = createAsyncThunk(
 const gamesSlice = createSlice({
   name: "games",
   initialState: {
-    items: [],
+    gamesList: [],
     count: 0,
-    status: "loading",
+    gamesFetchStatus: "loading",
   },
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchGames.pending, (state) => {
-      state.status = "loading";
+      state.gamesFetchStatus = "loading";
     });
 
     builder.addCase(fetchGames.fulfilled, (state, action) => {
-      state.status = "success";
-      state.items = action.payload.results;
+      state.gamesFetchStatus = "success";
+      state.gamesList = action.payload.results;
       state.count = action.payload.count;
     });
 
     builder.addCase(fetchGames.rejected, (state) => {
-      state.status = "error";
+      state.gamesFetchStatus = "error";
     });
   },
 });

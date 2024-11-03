@@ -16,7 +16,7 @@ import styles from "./AllGamesPage.module.scss";
 
 const AllGamesPage = memo(function AllGamesPage() {
   const dispatch = useDispatch();
-  const { items, status } = useSelector((state) => state.games);
+  const { gamesList, gamesFetchStatus } = useSelector((state) => state.games);
   const [isOpenModal, setIsOpenModal] = useState(false);
 
   const handleAddFavorites = (obj) => {
@@ -77,11 +77,11 @@ const AllGamesPage = memo(function AllGamesPage() {
               <Platforms />
             </div>
           </div>
-          {status === "loading" ? (
+          {gamesFetchStatus === "loading" ? (
             <Skeleton />
-          ) : items.length > 0 ? (
+          ) : gamesList.length > 0 ? (
             <section className={styles.gamesContent}>
-              {items.map((item) => (
+              {gamesList.map((item) => (
                 <GameCard
                   key={item.id}
                   {...item}
@@ -105,7 +105,7 @@ const AllGamesPage = memo(function AllGamesPage() {
             </div>
           )}
         </div>
-        {items.length > 0 && <Pagination />}
+        {gamesList.length > 0 && <Pagination />}
       </section>
     </main>
   );

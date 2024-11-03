@@ -8,7 +8,7 @@ import styles from "./Genres.module.scss";
 const Genres = () => {
   const dispatch = useDispatch();
   const { genreId } = useSelector((state) => state.filter);
-  const { items } = useSelector((state) => state.genres);
+  const { genresList } = useSelector((state) => state.genres);
 
   const handleChangeGenre = (event, id) => {
     event.stopPropagation();
@@ -29,7 +29,7 @@ const Genres = () => {
             All genres
           </Button>
         </div>
-        {items.slice(0, 11).map(({ id, name, image_background }) => (
+        {genresList.slice(0, 11).map(({ id, name, image_background }) => (
           <div className={styles.genre} key={id}>
             <div
               className={styles.image}

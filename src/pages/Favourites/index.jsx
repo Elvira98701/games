@@ -15,6 +15,7 @@ const Favourites = () => {
   const handleAddFavorites = (obj) => {
     dispatch(toggleItem(obj));
   };
+
   return (
     <main className={styles.favourites}>
       <section className={`${styles.favouritesInner} container`}>

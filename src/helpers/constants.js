@@ -7,7 +7,7 @@ import nintendoSwitch from "@assets/icons/platforms/nintendo.svg";
 import ios from "@assets/icons/platforms/macos.svg";
 import android from "@assets/icons/platforms/android.svg";
 
-export const platformsList = {
+export const platformsIconsList = {
   pc,
   playstation5,
   playstation4,

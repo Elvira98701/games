@@ -3,14 +3,14 @@ import { setPage, setPlatformId } from "@redux/filter/slice";
 
 import Button from "@components/Button";
 
-import { platformsList } from "@helpers/constants";
+import { platformsIconsList } from "@helpers/constants";
 
 import styles from "./Platforms.module.scss";
 
 const Platforms = () => {
   const dispatch = useDispatch();
   const { platformId } = useSelector((state) => state.filter);
-  const { items } = useSelector((state) => state.platforms);
+  const { platformsList } = useSelector((state) => state.platforms);
 
   const handleChangePlatform = (event, id) => {
     event.stopPropagation();
@@ -31,11 +31,11 @@ const Platforms = () => {
             All platforms
           </Button>
         </div>
-        {items.slice(0, 8).map(({ id, name, slug }) => (
+        {platformsList.slice(0, 8).map(({ id, name, slug }) => (
           <div className={styles.platform} key={id}>
             <div
               className={styles.image}
-              style={{ backgroundImage: `url("${platformsList[slug]}")` }}
+              style={{ backgroundImage: `url("${platformsIconsList[slug]}")` }}
             ></div>
             <Button
               onClick={(event) => handleChangePlatform(event, id)}

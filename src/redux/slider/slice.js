@@ -25,22 +25,22 @@ export const fetchSlider = createAsyncThunk(
 const sliderSlice = createSlice({
   name: "slider",
   initialState: {
-    slides: [],
-    status: "loading",
+    slidesList: [],
+    slidesFetchStatus: "loading",
   },
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchSlider.pending, (state) => {
-      state.status = "loading";
+      state.slidesFetchStatus = "loading";
     });
 
     builder.addCase(fetchSlider.fulfilled, (state, action) => {
-      state.status = "success";
-      state.slides = action.payload.results;
+      state.slidesFetchStatus = "success";
+      state.slidesList = action.payload.results;
     });
 
     builder.addCase(fetchSlider.rejected, (state) => {
-      state.status = "error";
+      state.slidesFetchStatus = "error";
     });
   },
 });

@@ -18,22 +18,22 @@ export const fetchPlatforms = createAsyncThunk(
 const platformsSlice = createSlice({
   name: "platforms",
   initialState: {
-    items: [],
-    status: "loading",
+    platformsList: [],
+    platformsFetchStatus: "loading",
   },
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchPlatforms.pending, (state) => {
-      state.status = "loading";
+      state.platformsFetchStatus = "loading";
     });
 
     builder.addCase(fetchPlatforms.fulfilled, (state, action) => {
-      state.status = "success";
-      state.items = action.payload.results;
+      state.platformsFetchStatus = "success";
+      state.platformsList = action.payload.results;
     });
 
     builder.addCase(fetchPlatforms.rejected, (state) => {
-      state.status = "error";
+      state.platformsFetchStatus = "error";
     });
   },
 });

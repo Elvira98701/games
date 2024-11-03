@@ -60,7 +60,11 @@ const Pagination = () => {
     <nav aria-label="Pagination">
       <ul className={styles.pagination}>
         <li>
-          <Button onClick={() => handlePageChange(1)} square={true}>
+          <Button
+            onClick={() => handlePageChange(1)}
+            disabled={currentPage === 1}
+            square={true}
+          >
             &#8249;
           </Button>
         </li>
@@ -84,7 +88,11 @@ const Pagination = () => {
           </Button>
         </li>
         <li>
-          <Button onClick={() => handlePageChange(totalPages)} square={true}>
+          <Button
+            onClick={() => handlePageChange(totalPages)}
+            disabled={currentPage === totalPages}
+            square={true}
+          >
             &#8250;
           </Button>
         </li>

@@ -18,22 +18,22 @@ export const fetchGenres = createAsyncThunk(
 const genresSlice = createSlice({
   name: "genres",
   initialState: {
-    items: [],
-    status: "loading",
+    genresList: [],
+    genresFetchStatus: "loading",
   },
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchGenres.pending, (state) => {
-      state.status = "loading";
+      state.genresFetchStatus = "loading";
     });
 
     builder.addCase(fetchGenres.fulfilled, (state, action) => {
-      state.status = "success";
-      state.items = action.payload.results;
+      state.genresFetchStatus = "success";
+      state.genresList = action.payload.results;
     });
 
     builder.addCase(fetchGenres.rejected, (state) => {
-      state.status = "error";
+      state.genresFetchStatus = "error";
     });
   },
 });

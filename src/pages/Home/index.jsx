@@ -10,17 +10,21 @@ import Preloader from "@components/Preloader";
 import styles from "./Home.module.scss";
 
 const Home = () => {
-  const { slides, status } = useSelector((state) => state.slider);
+  const { slidesList, slidesFetchStatus } = useSelector(
+    (state) => state.slider
+  );
 
   return (
     <>
-      {status === "loading" ? (
+      {slidesFetchStatus === "loading" ? (
         <Preloader />
       ) : (
         <main className={styles.home}>
-          <Slider slides={slides.slice(9)} />
+          <Slider slides={slidesList.slice(9)} />
           <About />
-          <TopGames slides={[...slides.slice(0, 7), ...slides.slice(8)]} />
+          <TopGames
+            slides={[...slidesList.slice(0, 7), ...slidesList.slice(8)]}
+          />
           <TopDevelopers />
           <BrowseAllGames />
         </main>
