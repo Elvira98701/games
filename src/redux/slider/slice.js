@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { BASE_URL, STATUSES } from "@utils/constants";
 import axios from "axios";
 
 export const fetchSlider = createAsyncThunk(
@@ -6,7 +7,7 @@ export const fetchSlider = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const response = await axios.get(
-        `https://api.rawg.io/api/games?key=${import.meta.env.VITE_API_KEY}`,
+        `${BASE_URL}/games?key=${import.meta.env.VITE_API_KEY}`,
         {
           params: {
             page_size: 18,
@@ -26,21 +27,21 @@ const sliderSlice = createSlice({
   name: "slider",
   initialState: {
     slidesList: [],
-    slidesFetchStatus: "loading",
+    slidesFetchStatus: STATUSES.LOADING,
   },
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchSlider.pending, (state) => {
-      state.slidesFetchStatus = "loading";
+      state.slidesFetchStatus = STATUSES.LOADING;
     });
 
     builder.addCase(fetchSlider.fulfilled, (state, action) => {
-      state.slidesFetchStatus = "success";
+      state.slidesFetchStatus = STATUSES.SUCCES;
       state.slidesList = action.payload.results;
     });
 
     builder.addCase(fetchSlider.rejected, (state) => {
-      state.slidesFetchStatus = "error";
+      state.slidesFetchStatus = STATUSES.ERROR;
     });
   },
 });

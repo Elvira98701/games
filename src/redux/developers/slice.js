@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { BASE_URL, STATUSES } from "@utils/constants";
 import axios from "axios";
 
 export const fetchDevelopers = createAsyncThunk(
@@ -6,7 +7,7 @@ export const fetchDevelopers = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const response = await axios.get(
-        `https://api.rawg.io/api/developers?key=${import.meta.env.VITE_API_KEY}`
+        `${BASE_URL}/developers?key=${import.meta.env.VITE_API_KEY}`
       );
       return response.data;
     } catch (error) {
@@ -19,21 +20,21 @@ const developersSlice = createSlice({
   name: "developers",
   initialState: {
     developersList: [],
-    developersFetchStatus: "loading",
+    developersFetchStatus: STATUSES.LOADING,
   },
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchDevelopers.pending, (state) => {
-      state.developersFetchStatus = "loading";
+      state.developersFetchStatus = STATUSES.LOADING;
     });
 
     builder.addCase(fetchDevelopers.fulfilled, (state, action) => {
-      state.developersFetchStatus = "success";
+      state.developersFetchStatus = STATUSES.SUCCES;
       state.developersList = action.payload.results;
     });
 
     builder.addCase(fetchDevelopers.rejected, (state) => {
-      state.developersFetchStatus = "error";
+      state.developersFetchStatus = STATUSES.ERROR;
     });
   },
 });

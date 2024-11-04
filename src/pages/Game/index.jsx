@@ -6,6 +6,8 @@ import { fetchGame } from "@redux/game/slice";
 
 import Preloader from "@components/Preloader";
 
+import { STATUSES } from "@utils/constants";
+
 import styles from "./Game.module.scss";
 
 const Game = () => {
@@ -19,7 +21,7 @@ const Game = () => {
 
   return (
     <>
-      {gameFetchStatus === "loading" ? (
+      {gameFetchStatus === STATUSES.LOADING ? (
         <Preloader />
       ) : (
         <main

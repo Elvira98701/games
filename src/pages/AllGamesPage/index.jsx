@@ -12,24 +12,26 @@ import Sort from "@components/Sort";
 import Pagination from "@components/Pagination";
 import Skeleton from "@components/Skeleton";
 
+import { STATUSES } from "@utils/constants";
+
 import styles from "./AllGamesPage.module.scss";
 
 const AllGamesPage = memo(function AllGamesPage() {
   const dispatch = useDispatch();
   const { gamesList, gamesFetchStatus } = useSelector((state) => state.games);
-  const [isOpenModal, setIsOpenModal] = useState(false);
+  const [isOpenDropdown, setIsOpenDropdown] = useState(false);
 
   const handleAddFavorites = (obj) => {
     dispatch(toggleItem(obj));
   };
 
-  useEffect(() => {
-    const closeModal = () => {
-      setIsOpenModal(false);
-    };
-    document.addEventListener("click", closeModal);
+  const handleCloseDropdown = () => {
+    setIsOpenDropdown(false);
+  };
 
-    return () => document.removeEventListener("click", closeModal);
+  useEffect(() => {
+    document.addEventListener("click", handleCloseDropdown);
+    return () => document.removeEventListener("click", handleCloseDropdown);
   }, []);
 
   return (
@@ -46,7 +48,7 @@ const AllGamesPage = memo(function AllGamesPage() {
               <Button
                 onClick={(event) => {
                   event.stopPropagation();
-                  setIsOpenModal(!isOpenModal);
+                  setIsOpenDropdown(!isOpenDropdown);
                 }}
               >
                 <svg
@@ -66,18 +68,18 @@ const AllGamesPage = memo(function AllGamesPage() {
         <div className={styles.gamesInner}>
           <div className={styles.gamesFilter}>
             <div
-              className={styles.gamesModal}
+              className={styles.gamesDropdown}
               style={{
-                transform: isOpenModal ? "translateY(0)" : "",
-                opacity: isOpenModal ? 1 : "",
-                pointerEvents: isOpenModal ? "all" : "",
+                transform: isOpenDropdown ? "translateY(0)" : "",
+                opacity: isOpenDropdown ? 1 : "",
+                pointerEvents: isOpenDropdown ? "all" : "",
               }}
             >
               <Genres />
               <Platforms />
             </div>
           </div>
-          {gamesFetchStatus === "loading" ? (
+          {gamesFetchStatus === STATUSES.LOADING ? (
             <Skeleton />
           ) : gamesList.length > 0 ? (
             <section className={styles.gamesContent}>

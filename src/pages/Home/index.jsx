@@ -7,6 +7,8 @@ import TopDevelopers from "@components/TopDevelopers";
 import BrowseAllGames from "@components/BrowseAllGames";
 import Preloader from "@components/Preloader";
 
+import { STATUSES } from "@utils/constants";
+
 import styles from "./Home.module.scss";
 
 const Home = () => {
@@ -16,7 +18,7 @@ const Home = () => {
 
   return (
     <>
-      {slidesFetchStatus === "loading" ? (
+      {slidesFetchStatus === STATUSES.LOADING ? (
         <Preloader />
       ) : (
         <main className={styles.home}>

@@ -16,7 +16,7 @@ import Favourites from "@pages/Favourites";
 import Header from "@components/Header";
 import Footer from "@components/Footer";
 
-import ScrollToTop from "@helpers/scrollToTop";
+import ScrollToTop from "@utils/scrollToTop";
 
 import "@styles/index.scss";
 

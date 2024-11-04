@@ -3,7 +3,7 @@ import { setPage, setPlatformId } from "@redux/filter/slice";
 
 import Button from "@components/Button";
 
-import { platformsIconsList } from "@helpers/constants";
+import { platformsIconsList } from "@utils/helpers";
 
 import styles from "./Platforms.module.scss";
 

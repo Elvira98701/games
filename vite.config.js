@@ -23,8 +23,8 @@ export default defineConfig({
       "@styles": "/src/styles",
       "@hooks": "/src/hooks",
       "@redux": "/src/redux",
-      "@helpers": "/src/helpers",
       "@assets": "/src/assets",
+      "@utils": "/src/utils",
     },
   },
 });

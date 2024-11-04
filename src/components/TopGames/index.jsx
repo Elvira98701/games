@@ -55,12 +55,12 @@ const TopGames = ({ slides = [] }) => {
               transform: `translateX(${offsetTranslateX}%)`,
             }}
           >
-            {slides.map((item, index) => (
+            {slides.map((item) => (
               <article className={styles.slideItem} key={item.id}>
                 <img
                   className={styles.slideImage}
                   src={item.background_image}
-                  alt={`Slide ${index}`}
+                  alt={item.name}
                 />
                 <div className={styles.slideContent}>
                   <Link to={`/game/${item.id}`}>

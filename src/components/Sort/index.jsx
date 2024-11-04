@@ -14,23 +14,23 @@ const sortList = [
 const Sort = () => {
   const dispatch = useDispatch();
   const { sort } = useSelector((state) => state.filter);
-  const [openPopup, setOpenPopup] = useState(false);
+  const [isOpenDropdown, setIsOpenDropdown] = useState(false);
 
   const currentTitle = sortList.find((obj) => obj.name === sort).title;
 
   const handleChangeSort = (event, value) => {
     event.stopPropagation();
     dispatch(setSort(value));
-    setOpenPopup(false);
+    setIsOpenDropdown(false);
+  };
+
+  const handleCloseDropdown = () => {
+    setIsOpenDropdown(false);
   };
 
   useEffect(() => {
-    const closePopup = () => {
-      setOpenPopup(false);
-    };
-    document.addEventListener("click", closePopup);
-
-    return () => document.removeEventListener("click", closePopup);
+    document.addEventListener("click", handleCloseDropdown);
+    return () => document.removeEventListener("click", handleCloseDropdown);
   }, []);
 
   return (
@@ -39,17 +39,17 @@ const Sort = () => {
         className={styles.sortLabel}
         onClick={(event) => {
           event.stopPropagation();
-          setOpenPopup(!openPopup);
+          setIsOpenDropdown(!isOpenDropdown);
         }}
       >
         Order by: <b>{currentTitle}</b>
       </div>
       <div
-        className={styles.sortPopup}
+        className={styles.sortDropdown}
         style={{
-          opacity: openPopup ? 1 : 0,
-          transform: openPopup ? "translateY(0)" : "translateY(50px)",
-          pointerEvents: openPopup ? "all" : "none",
+          opacity: isOpenDropdown ? 1 : 0,
+          transform: isOpenDropdown ? "translateY(0)" : "translateY(50px)",
+          pointerEvents: isOpenDropdown ? "all" : "none",
         }}
       >
         <ul className={styles.sortList}>

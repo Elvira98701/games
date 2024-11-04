@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { BASE_URL, STATUSES } from "@utils/constants";
 import axios from "axios";
 
 export const fetchPlatforms = createAsyncThunk(
@@ -6,7 +7,7 @@ export const fetchPlatforms = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const response = await axios.get(
-        `https://api.rawg.io/api/platforms?key=${import.meta.env.VITE_API_KEY}`
+        `${BASE_URL}/platforms?key=${import.meta.env.VITE_API_KEY}`
       );
       return response.data;
     } catch (error) {
@@ -19,21 +20,21 @@ const platformsSlice = createSlice({
   name: "platforms",
   initialState: {
     platformsList: [],
-    platformsFetchStatus: "loading",
+    platformsFetchStatus: STATUSES.LOADING,
   },
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchPlatforms.pending, (state) => {
-      state.platformsFetchStatus = "loading";
+      state.platformsFetchStatus = STATUSES.LOADING;
     });
 
     builder.addCase(fetchPlatforms.fulfilled, (state, action) => {
-      state.platformsFetchStatus = "success";
+      state.platformsFetchStatus = STATUSES.SUCCES;
       state.platformsList = action.payload.results;
     });
 
     builder.addCase(fetchPlatforms.rejected, (state) => {
-      state.platformsFetchStatus = "error";
+      state.platformsFetchStatus = STATUSES.ERROR;
     });
   },
 });
