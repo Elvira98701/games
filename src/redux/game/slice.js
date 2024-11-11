@@ -29,7 +29,7 @@ const gameSlice = createSlice({
     });
 
     builder.addCase(fetchGame.fulfilled, (state, action) => {
-      state.gameFetchStatus = STATUSES.SUCCES;
+      state.gameFetchStatus = STATUSES.SUCCESS;
       state.game = action.payload;
     });
 

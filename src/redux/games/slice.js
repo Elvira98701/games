@@ -42,7 +42,7 @@ const gamesSlice = createSlice({
     });
 
     builder.addCase(fetchGames.fulfilled, (state, action) => {
-      state.gamesFetchStatus = STATUSES.SUCCES;
+      state.gamesFetchStatus = STATUSES.SUCCESS;
       state.gamesList = action.payload.results;
       state.count = action.payload.count;
     });

@@ -29,7 +29,7 @@ const platformsSlice = createSlice({
     });
 
     builder.addCase(fetchPlatforms.fulfilled, (state, action) => {
-      state.platformsFetchStatus = STATUSES.SUCCES;
+      state.platformsFetchStatus = STATUSES.SUCCESS;
       state.platformsList = action.payload.results;
     });
 

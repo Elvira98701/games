@@ -5,6 +5,7 @@ body {
     width: 100%;
     overflow-x: hidden;
     scrollbar-width: thin;
+    scrollbar-color: var(--color-additional) var(--color-dark);
 }
 
 html {

@@ -29,7 +29,7 @@ const genresSlice = createSlice({
     });
 
     builder.addCase(fetchGenres.fulfilled, (state, action) => {
-      state.genresFetchStatus = STATUSES.SUCCES;
+      state.genresFetchStatus = STATUSES.SUCCESS;
       state.genresList = action.payload.results;
     });
 

@@ -36,7 +36,7 @@ const sliderSlice = createSlice({
     });
 
     builder.addCase(fetchSlider.fulfilled, (state, action) => {
-      state.slidesFetchStatus = STATUSES.SUCCES;
+      state.slidesFetchStatus = STATUSES.SUCCESS;
       state.slidesList = action.payload.results;
     });
 
