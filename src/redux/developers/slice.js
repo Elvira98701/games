@@ -29,7 +29,7 @@ const developersSlice = createSlice({
     });
 
     builder.addCase(fetchDevelopers.fulfilled, (state, action) => {
-      state.developersFetchStatus = STATUSES.SUCCES;
+      state.developersFetchStatus = STATUSES.SUCCESS;
       state.developersList = action.payload.results;
     });
 
