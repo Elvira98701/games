@@ -135,15 +135,24 @@
 
 .slideFavourites {
     position: absolute;
-    top: 20px;
-    right: 20px;
-    transition: all 0.3s;
+    top: 15px;
+    right: 15px;
     z-index: 2;
     cursor: pointer;
+    background-color: rgb(0 0 0 / 0.7);
+    @include square(50px);
+    @include flex-center;
+    border-radius: 50%;
 
-    @media (hover: hover) {
-        &:hover {
-            fill: var(--color-accent);
+    &Icon {
+        transition: all 0.3s;
+
+        @media (hover: hover) {
+            &:hover {
+                fill: var(--color-accent);
+            }
         }
     }
+
+
 }
