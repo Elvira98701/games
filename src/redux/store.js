@@ -1,22 +1,25 @@
 import { configureStore } from "@reduxjs/toolkit";
-import gamesSlice from "./games/slice";
-import sliderSlice from "./slider/slice";
-import genresSlice from "./genres/slice";
-import platformsSlice from "./platforms/slice";
-import favouritesSlice from "./favourites/slice";
-import filterSlice from "./filter/slice";
-import gameSlice from "./game/slice";
-import developersSlice from "./developers/slice";
+
+import gamesReducer from "./games/slice";
+import sliderReducer from "./slider/slice";
+import genresReducer from "./genres/slice";
+import platformsReducer from "./platforms/slice";
+import favouritesReducer from "./favourites/slice";
+import filterReducer from "./filter/slice";
+import gameReducer from "./game/slice";
+import developersReducer from "./developers/slice";
+import moviesReducer from "./movies/slice";
 
 export const store = configureStore({
   reducer: {
-    games: gamesSlice,
-    game: gameSlice,
-    slider: sliderSlice,
-    genres: genresSlice,
-    platforms: platformsSlice,
-    favourites: favouritesSlice,
-    filter: filterSlice,
-    developers: developersSlice,
+    games: gamesReducer,
+    game: gameReducer,
+    slider: sliderReducer,
+    genres: genresReducer,
+    platforms: platformsReducer,
+    favourites: favouritesReducer,
+    filter: filterReducer,
+    developers: developersReducer,
+    movies: moviesReducer,
   },
 });

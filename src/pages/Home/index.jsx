@@ -18,7 +18,8 @@ const Home = () => {
 
   return (
     <>
-      {slidesFetchStatus === STATUSES.LOADING ? (
+      {slidesFetchStatus === STATUSES.LOADING ||
+      slidesFetchStatus === STATUSES.IDLE ? (
         <Preloader />
       ) : (
         <main className={styles.home}>

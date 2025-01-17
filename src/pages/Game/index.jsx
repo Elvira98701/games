@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { fetchGame } from "@redux/game/slice";
 
 import Preloader from "@components/Preloader";
+import Movies from "@components/Movies";
 
 import { STATUSES } from "@utils/constants";
 
@@ -71,6 +72,7 @@ const Game = () => {
               </a>
             </div>
           </section>
+          {game.movies_count > 0 && <Movies id={id} />}
         </main>
       )}
     </>

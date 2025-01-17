@@ -4,15 +4,11 @@ import axios from "axios";
 
 export const fetchPlatforms = createAsyncThunk(
   "platforms/fetchPlatforms",
-  async (_, thunkAPI) => {
-    try {
-      const response = await axios.get(
-        `${BASE_URL}/platforms?key=${import.meta.env.VITE_API_KEY}`
-      );
-      return response.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error);
-    }
+  async () => {
+    const response = await axios.get(
+      `${BASE_URL}/platforms?key=${import.meta.env.VITE_API_KEY}`
+    );
+    return response.data;
   }
 );
 
@@ -20,22 +16,21 @@ const platformsSlice = createSlice({
   name: "platforms",
   initialState: {
     platformsList: [],
-    platformsFetchStatus: STATUSES.LOADING,
+    platformsFetchStatus: STATUSES.IDLE,
   },
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(fetchPlatforms.pending, (state) => {
-      state.platformsFetchStatus = STATUSES.LOADING;
-    });
-
-    builder.addCase(fetchPlatforms.fulfilled, (state, action) => {
-      state.platformsFetchStatus = STATUSES.SUCCESS;
-      state.platformsList = action.payload.results;
-    });
-
-    builder.addCase(fetchPlatforms.rejected, (state) => {
-      state.platformsFetchStatus = STATUSES.ERROR;
-    });
+    builder
+      .addCase(fetchPlatforms.pending, (state) => {
+        state.platformsFetchStatus = STATUSES.LOADING;
+      })
+      .addCase(fetchPlatforms.fulfilled, (state, action) => {
+        state.platformsFetchStatus = STATUSES.SUCCESS;
+        state.platformsList = action.payload.results;
+      })
+      .addCase(fetchPlatforms.rejected, (state) => {
+        state.platformsFetchStatus = STATUSES.ERROR;
+      });
   },
 });
 

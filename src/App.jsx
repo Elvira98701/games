@@ -17,20 +17,42 @@ import Header from "@components/Header";
 import Footer from "@components/Footer";
 
 import ScrollToTop from "@utils/scrollToTop";
+import { STATUSES } from "@utils/constants";
 
 import "@styles/index.scss";
 
 const App = () => {
   const dispatch = useDispatch();
+  const { slidesFetchStatus } = useSelector((state) => state.slider);
+  const { genresFetchStatus } = useSelector((state) => state.genres);
+  const { platformsFetchStatus } = useSelector((state) => state.platforms);
+  const { developersFetchStatus } = useSelector((state) => state.developers);
   const { genreId, platformId, sort, searchValue, currentPage, pageSize } =
     useSelector((state) => state.filter);
 
   useEffect(() => {
-    dispatch(fetchSlider());
-    dispatch(fetchGenres());
-    dispatch(fetchPlatforms());
-    dispatch(fetchDevelopers());
-  }, [dispatch]);
+    if (slidesFetchStatus === STATUSES.IDLE) {
+      dispatch(fetchSlider());
+    }
+
+    if (genresFetchStatus === STATUSES.IDLE) {
+      dispatch(fetchGenres());
+    }
+
+    if (platformsFetchStatus === STATUSES.IDLE) {
+      dispatch(fetchPlatforms());
+    }
+
+    if (developersFetchStatus === STATUSES.IDLE) {
+      dispatch(fetchDevelopers());
+    }
+  }, [
+    developersFetchStatus,
+    dispatch,
+    genresFetchStatus,
+    platformsFetchStatus,
+    slidesFetchStatus,
+  ]);
 
   useEffect(() => {
     dispatch(

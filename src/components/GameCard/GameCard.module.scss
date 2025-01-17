@@ -1,71 +1,91 @@
 .card {
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  width: 100%;
+  height: 400px;
+  border-radius: var(--border-radius);
+  -webkit-animation: fade-in 0.3s;
+  animation: fade-in 0.5s;
+
+  @media (max-width: 1450px) {
+    height: 350px;
+  }
+
+  &Content {
+    position: absolute;
+    inset: 0;
     width: 100%;
-    height: 400px;
-    border-radius: var(--border-radius);
+    padding: 15px;
+    background-image: linear-gradient(to top, rgb(0 0 0 / 1), rgb(0 0 0 / 0));
+    border-bottom-left-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
 
-    @media (max-width: 1450px) {
-        height: 350px;
-    }
+  &Title {
+    padding-top: 20px;
+    font-size: 18px;
+    text-transform: capitalize;
+    font-family: var(--font-family-base);
+    font-weight: 700;
+  }
 
-    &Content {
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        padding: 15px;
-        background-image: linear-gradient(to top, rgb(0 0 0 / 1), rgb(0 0 0 / 0));
-        border-bottom-left-radius: var(--border-radius);
-        border-bottom-right-radius: var(--border-radius);
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-    }
+  &Info {
+    @include flex-between;
+  }
 
-    &Title {
-        padding-top: 20px;
-        font-size: 18px;
-        text-transform: capitalize;
-        font-family: var(--font-family-base);
-        font-weight: 700;
-    }
+  &Rating {
+    color: #6dc849;
+    border: 1px solid;
+    border-radius: 5px;
+    font-weight: 700;
+    width: 45px;
+    height: 30px;
+    @include flex-center;
+    font-size: 14px;
+  }
 
-    &Info {
-        @include flex-between;
-    }
+  &Favoutites {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 2;
+    cursor: pointer;
+    background-color: rgb(0 0 0 / 0.7);
+    @include square(50px);
+    @include flex-center;
+    border-radius: 50%;
 
-    &Rating {
-        color: #6dc849;
-        border: 1px solid;
-        border-radius: 5px;
-        font-weight: 700;
-        width: 45px;
-        height: 30px;
-        @include flex-center;
-        font-size: 14px;
-    }
+    &Icon {
+      transition: all 0.3s;
 
-    &Favoutites {
-        position: absolute;
-        top: 15px;
-        right: 15px;
-        z-index: 2;
-        cursor: pointer;
-        background-color: rgb(0 0 0 / 0.7);
-        @include square(50px);
-        @include flex-center;
-        border-radius: 50%;
-
-        &Icon {
-            transition: all 0.3s;
-
-            @media (hover: hover) {
-                &:hover {
-                    fill: var(--color-accent);
-                }
-            }
+      @media (hover: hover) {
+        &:hover {
+          fill: var(--color-accent);
         }
+      }
     }
+  }
+}
+
+@-webkit-keyframes fade-in {
+  from {
+    scale: 0;
+  }
+  to {
+    scale: 1;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    scale: 0;
+  }
+  to {
+    scale: 1;
+  }
 }
