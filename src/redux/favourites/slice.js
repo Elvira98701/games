@@ -9,9 +9,7 @@ const getFromLocalStorage = () => {
   }
 };
 
-const initialState = {
-  favouritesList: getFromLocalStorage() ?? [],
-};
+const initialState = getFromLocalStorage() ?? { favouritesList: [] };
 
 const favouritesSlice = createSlice({
   name: "favourites",
@@ -29,12 +27,9 @@ const favouritesSlice = createSlice({
           (obj) => obj.id !== action.payload.id
         );
       }
-
-      localStorage.setItem("favourites", JSON.stringify(state.favouritesList));
     },
     clearItems(state) {
       state.favouritesList = [];
-      localStorage.removeItem("favourites");
     },
   },
 });

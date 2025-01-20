@@ -9,6 +9,7 @@ import filterReducer from "./filter/slice";
 import gameReducer from "./game/slice";
 import developersReducer from "./developers/slice";
 import moviesReducer from "./movies/slice";
+import { localStorageMiddleware } from "./middleware/localStorageMiddleware";
 
 export const store = configureStore({
   reducer: {
@@ -22,4 +23,6 @@ export const store = configureStore({
     developers: developersReducer,
     movies: moviesReducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(localStorageMiddleware),
 });
